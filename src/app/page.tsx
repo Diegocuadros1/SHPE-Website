@@ -38,18 +38,18 @@ const pillars = [
 
 const upcomingEvents = [
   {
-    date: "Jan 15",
+    date: "Jan 29",
     title: "Welcome Back Meeting",
-    time: "5:00 PM - 6:30 PM",
+    time: "6:00 PM - 7:00 PM",
   },
   {
-    date: "Jan 22",
-    title: "Resume Workshop",
-    time: "4:00 PM - 5:30 PM",
+    date: "TBD",
+    title: "Guest Speaker",
+    time: "6:00 PM - 7:00 PM",
   },
   {
-    date: "Feb 5",
-    title: "Tech Company Info Session",
+    date: "TBD",
+    title: "Social",
     time: "6:00 PM - 7:30 PM",
   },
 ];
@@ -259,17 +259,11 @@ const Index = () => {
               {/* Google Calendar Embed */}
               <div className="rounded-2xl overflow-hidden shadow-lg border border-border bg-card">
                 <iframe
-                  src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America%2FLos_Angeles&showTitle=0&showNav=1&showPrint=0&showTabs=0&showCalendars=0"
+                  src="https://calendar.google.com/calendar/embed?src=shpe.lmu%40gmail.com&ctz=America%2FLos_Angeles"
                   className="w-full h-[400px] md:h-[500px]"
-                  frameBorder="0"
-                  scrolling="no"
                   title="SHPE LMU Events Calendar"
-                />
+                ></iframe>
               </div>
-              <p className="text-sm text-muted-foreground mt-4 text-center">
-                * Replace this embed with your SHPE Google Calendar ID for real
-                events
-              </p>
             </div>
 
             {/* Right: Upcoming Events List */}
