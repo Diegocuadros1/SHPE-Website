@@ -1,79 +1,78 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
   Users,
   BookOpen,
   Briefcase,
-  Calendar,
-  Mail,
-  Instagram,
   ChevronRight,
   Play,
   Pause,
 } from "lucide-react";
 import Link from "next/link";
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
+
+/* ------------------ DATA ------------------ */
+
+// New statistics for "By the Numbers" section
+const statistics = [
+  {
+    number: "#6",
+    description: "Private University in California",
+    additionalInfo: "U.S. News & World Report, 2026",
+  },
+  {
+    number: "#21",
+    description: "Best Undergraduate Engineering Program",
+    additionalInfo: "U.S. News & World Report, 2026",
+
+  },
+];
 
 const pillars = [
   {
     icon: Users,
     title: "Community",
     description:
-      "Build lasting connections with fellow Hispanic engineers and professionals who share your journey.",
+      "Build lasting connections with fellow Hispanic engineers who share your journey. SHPE offers a strong, supportive network where members can connect, collaborate, and build long-term relationships. From professional networking to lifelong friendships, SHPE's community empowers you to thrive",
   },
   {
     icon: BookOpen,
     title: "Academics",
     description:
-      "Access tutoring, study groups, and resources to excel in your engineering coursework.",
+      "Our academic resources are designed to help you excel in your courses and beyond. Whether you need tutoring, mentorship, or resources for studying STEM subjects, SHPE provides the support to ensure you reach your academic goals",
   },
   {
     icon: Briefcase,
     title: "Professional Development",
     description:
-      "Workshops, resume reviews, and networking events to launch your engineering career.",
+      "Workshops, networking, and career prep to launch your engineering career. SHPE hosts events, workshops, and networking opportunities designed to enhance your professional skills and connect you with industry leaders. Get the guidance and resources you need to launch your career and succeed in the competitive STEM field",
   },
 ];
 
 const upcomingEvents = [
-  {
-    date: "Jan 29",
-    title: "Welcome Back Meeting",
-    time: "6:00 PM - 7:00 PM",
-  },
-  {
-    date: "TBD",
-    title: "Guest Speaker",
-    time: "6:00 PM - 7:00 PM",
-  },
-  {
-    date: "TBD",
-    title: "Social",
-    time: "6:00 PM - 7:30 PM",
-  },
+  { date: "Jan 29", title: "Welcome Back Meeting", time: "6:00 – 7:00 PM" },
+  { date: "TBD", title: "Guest Speaker", time: "6:00 – 7:00 PM" },
+  { date: "TBD", title: "Social Event", time: "6:00 – 7:30 PM" },
 ];
 
-const Index = () => {
+/* ------------------ PAGE ------------------ */
+
+export default function Page() {
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const toggleVideo = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
+    if (!videoRef.current) return;
+    isPlaying ? videoRef.current.pause() : videoRef.current.play();
+    setIsPlaying(!isPlaying);
   };
 
   return (
     <>
-      {/* Hero Section with Video Background */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* Background Video with Overlay */}
+      {/* ================= HERO (LMU STYLE) ================= */}
+      <section className="relative min-h-screen overflow-hidden">
         <div className="absolute inset-0">
           <video
             ref={videoRef}
@@ -81,273 +80,189 @@ const Index = () => {
             muted
             loop
             playsInline
-            preload="metadata"
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
           >
             <source src="/SHPEsgiving .mp4" type="video/mp4" />
-            Your browser does not support the video tag.
           </video>
 
-          <div className="absolute inset-0 bg-gradient-to-r from-crimson/90 via-crimson/75 to-crimson/60" />
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10" />
         </div>
 
-        {/* Video Control Button */}
+        {/* Video Control */}
         <button
           onClick={toggleVideo}
-          className="absolute bottom-8 right-8 z-20 flex items-center gap-2 px-4 py-2 rounded-full bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 text-primary-foreground text-sm font-medium hover:bg-primary-foreground/20 transition-all duration-300"
-          aria-label={isPlaying ? "Pause video" : "Play video"}
+          className="absolute bottom-8 right-8 z-20 flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur hover:bg-white/20"
         >
-          {isPlaying ? (
-            <>
-              <Pause className="w-4 h-4" /> Pause Video
-            </>
-          ) : (
-            <>
-              <Play className="w-4 h-4" /> Play Video
-            </>
-          )}
+          {isPlaying ? <Pause size={16} /> : <Play size={16} />}
+          {isPlaying ? "Pause Video" : "Play Video"}
         </button>
 
-        {/* Geometric Accents */}
-        <div className="absolute top-20 right-10 w-64 h-64 bg-gold/20 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute bottom-20 left-10 w-48 h-48 bg-primary-foreground/20 rounded-full blur-3xl animate-pulse-slow" />
+        {/* Hero Content */}
+        <div className="relative z-10 h-screen">
+          <div className="mx-auto flex h-full max-w-7xl items-end px-6 pb-24 md:px-10 md:pb-32">
+            <div className="max-w-3xl relative">
+              {/* 🔴 LMU-style accent bar */}
+              <div
+                aria-hidden="true"
+                className="hidden md:block absolute left-[-100vw] top-3 h-16 w-[110vw] bg-primary z-0"
+              />
 
-        <div className="container relative z-10 mx-auto px-4 py-20">
-          <div className="max-w-3xl">
-            <div className="animate-slide-up">
-              <span className="inline-block px-4 py-2 rounded-full bg-primary-foreground/10 text-primary-foreground font-medium text-sm mb-6 border border-primary-foreground/30 backdrop-blur-sm">
-                Society of Hispanic Professional Engineers
-              </span>
-            </div>
+              <p className="relative z-10 mb-4 text-2xl md:text-xl lg:text-2xl font-semibold tracking-wide text-white">
+                Don&apos;t just join.
+              </p>
 
-            <h1
-              className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-primary-foreground mb-6 animate-slide-up"
-              style={{ animationDelay: "0.1s" }}
-            >
-              Empowering the Next Generation of{" "}
-              <span className="text-gold">Hispanic Engineers</span>
-            </h1>
+              <h1 className="relative z-10 font-display text-5xl font-bold leading-[0.95] tracking-tight text-white md:text-7xl lg:text-8xl">
+                Make it <span className="text-gold">matter.</span>
+              </h1>
 
-            <p
-              className="text-lg md:text-xl text-primary-foreground/80 mb-8 max-w-2xl animate-slide-up"
-              style={{ animationDelay: "0.2s" }}
-            >
-              Join LMU's premier organization for Hispanic students in STEM.
-              Build community, develop professionally, and create lasting
-              impact.
-            </p>
+              <p className="relative z-10 mt-6 max-w-2xl text-base leading-relaxed text-white/80 md:text-lg">
+                Join LMU’s Society of Hispanic Professional Engineers and grow
+                through community, academics, and professional development.
+              </p>
 
-            <div
-              className="flex flex-wrap gap-4 animate-slide-up"
-              style={{ animationDelay: "0.3s" }}
-            >
-              <Button variant="hero" size="lg" asChild>
-                <Link href="/about">
-                  Learn More <ArrowRight className="ml-2" />
+              <div className="relative z-10 mt-8 flex flex-wrap gap-3">
+                <Link
+                  href="/about"
+                  className="inline-flex items-center gap-2 bg-white px-6 py-3 font-semibold text-black hover:bg-white/90"
+                >
+                  Learn More <ArrowRight size={18} />
                 </Link>
-              </Button>
-              <Button variant="heroOutline" size="lg" asChild>
-                <Link href="/contact">Get In Touch</Link>
-              </Button>
+
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center px-6 py-3 font-semibold text-white border border-white hover:bg-white/10"
+                >
+                  Get In Touch
+                </Link>
+
+                <Link
+                  href="/updates"
+                  className="inline-flex items-center px-6 py-3 font-semibold text-white/90 border border-white/60 hover:bg-white/10"
+                >
+                  News & Updates
+                </Link>
+              </div>
+
+              <div className="relative z-10 mt-10 text-xs tracking-widest text-white/70">
+                EXPLORE ↓
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What is SHPE Section */}
-      <section className="py-20 md:py-28 bg-pattern">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+      {/* ================= WHO WE ARE ================= */}
+      <section className="bg-pattern py-24">
+        <div className="container mx-auto px-6">
+          <div className="grid gap-12 lg:grid-cols-2">
             <div>
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-medium text-sm mb-4">
+              <span className="mb-4 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
                 Who We Are
               </span>
-              <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-6">
+              <h2 className="mb-6 text-4xl font-bold">
                 What is <span className="text-primary">SHPE</span>?
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                SHPE changes lives by empowering the Hispanic community to
-                realize its fullest potential and impacts the world through STEM
-                awareness, access, support, and development. At LMU, we bring
-                this mission to life through community, academics, and
-                professional development.
+              <p className="text-lg text-muted-foreground">
+                SHPE (Society of Hispanic Professional Engineers) is dedicated
+                to empowering the Hispanic community to reach its fullest
+                potential in STEM (Science, Technology, Engineering, and
+                Mathematics). Through education, professional development, and
+                community engagement, SHPE is helping students and professionals
+                in engineering and other technical fields break barriers, gain
+                access to opportunities, and make an impact on the world around
+                them.
               </p>
             </div>
-            <div className="relative">
-              <div className="absolute -top-4 -right-4 w-32 h-32 bg-gold/20 rounded-full blur-3xl" />
-              <img
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop"
-                alt="Students collaborating on engineering project"
-                className="rounded-2xl shadow-lg w-full h-[300px] object-cover"
-              />
-            </div>
+
+            <img
+              src="/SHPE1.jpg"
+              className="h-[320px] w-full rounded-2xl object-cover shadow-lg"
+              alt="Students collaborating"
+            />
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-            {pillars.map((pillar, index) => (
+          {/* ================= NEW STATISTICS (By the Numbers) ================= */}
+          <div className="mt-16 grid grid-cols-2 gap-12">
+            {statistics.map((stat) => (
+              <div key={stat.number} className="text-center">
+                <div className="text-4xl font-bold text-primary">{stat.number}</div>
+                <p className="mt-2 text-xl">{stat.description}</p>
+                {stat.additionalInfo && (
+                  <p className="text-sm text-muted-foreground">{stat.additionalInfo}</p>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 grid gap-8 md:grid-cols-3">
+            {pillars.map((pillar) => (
               <div
                 key={pillar.title}
-                className="group p-8 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-500 hover:-translate-y-2"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="rounded-2xl border bg-card p-8 transition hover:-translate-y-2 hover:shadow-lg"
               >
-                <div className="w-14 h-14 rounded-xl bg-hero-gradient flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <pillar.icon className="w-7 h-7 text-primary-foreground" />
-                </div>
-                <h3 className="text-xl font-display font-bold text-foreground mb-3">
-                  {pillar.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {pillar.description}
-                </p>
+                <pillar.icon className="mb-4 h-8 w-8 text-primary" />
+                <h3 className="mb-2 text-xl font-bold">{pillar.title}</h3>
+                <p className="text-muted-foreground">{pillar.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Community Gallery Section */}
-      <section className="py-16 bg-card">
-        <div className="container mx-auto px-4">
-          <h3 className="text-2xl font-display font-bold text-foreground text-center mb-8">
-            Our Community in Action
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <img
-              src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=300&h=300&fit=crop"
-              alt="SHPE networking event"
-              className="rounded-xl w-full h-40 md:h-48 object-cover hover:scale-105 transition-transform duration-300"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=300&h=300&fit=crop"
-              alt="Students at workshop"
-              className="rounded-xl w-full h-40 md:h-48 object-cover hover:scale-105 transition-transform duration-300"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=300&h=300&fit=crop"
-              alt="Team collaboration"
-              className="rounded-xl w-full h-40 md:h-48 object-cover hover:scale-105 transition-transform duration-300"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=300&h=300&fit=crop"
-              alt="Group celebration"
-              className="rounded-xl w-full h-40 md:h-48 object-cover hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-        </div>
-      </section>
+      {/* ================= CALENDAR ================= */}
+      <section className="bg-muted/50 py-24">
+        <div className="container mx-auto grid gap-12 px-6 lg:grid-cols-2">
+          <iframe
+            src="https://calendar.google.com/calendar/embed?src=shpe.lmu%40gmail.com"
+            className="h-[500px] w-full rounded-2xl border bg-white"
+          />
 
-      {/* Calendar Section */}
-      <section className="py-20 md:py-28 bg-muted/50">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Left: Calendar Embed */}
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-hero-gradient flex items-center justify-center">
-                  <Calendar className="w-6 h-6 text-primary-foreground" />
-                </div>
-                <div>
-                  <h2 className="text-2xl md:text-3xl font-display font-bold text-foreground">
-                    Events Calendar
-                  </h2>
-                  <p className="text-muted-foreground">
-                    Stay updated on all SHPE activities
-                  </p>
-                </div>
-              </div>
-
-              {/* Google Calendar Embed */}
-              <div className="rounded-2xl overflow-hidden shadow-lg border border-border bg-card">
-                <iframe
-                  src="https://calendar.google.com/calendar/embed?src=shpe.lmu%40gmail.com&ctz=America%2FLos_Angeles"
-                  className="w-full h-[400px] md:h-[500px]"
-                  title="SHPE LMU Events Calendar"
-                ></iframe>
-              </div>
-            </div>
-
-            {/* Right: Upcoming Events List */}
-            <div>
-              <h3 className="text-xl font-display font-bold text-foreground mb-6">
-                Upcoming Events
-              </h3>
-              <div className="space-y-4">
-                {upcomingEvents.map((event, index) => (
-                  <div
-                    key={index}
-                    className="flex gap-4 p-5 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all duration-300 group cursor-pointer"
-                  >
-                    <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-hero-gradient flex flex-col items-center justify-center text-primary-foreground">
-                      <span className="text-xs font-medium uppercase">
-                        {event.date.split(" ")[0]}
-                      </span>
-                      <span className="text-xl font-bold">
-                        {event.date.split(" ")[1]}
-                      </span>
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                        {event.title}
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        {event.time}
-                      </p>
-                    </div>
-                    <ChevronRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all self-center" />
+          <div>
+            <h3 className="mb-6 text-2xl font-bold">Upcoming Events</h3>
+            <div className="space-y-4">
+              {upcomingEvents.map((event, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-4 rounded-xl border bg-card p-5 hover:shadow"
+                >
+                  <div className="flex h-16 w-16 flex-col items-center justify-center rounded-xl bg-primary text-white">
+                    <span className="text-xs uppercase">
+                      {event.date.split(" ")[0]}
+                    </span>
+                    <span className="text-lg font-bold">
+                      {event.date.split(" ")[1]}
+                    </span>
                   </div>
-                ))}
-              </div>
-
-              {/* Quick Contact */}
-              <div className="mt-8 p-6 rounded-2xl bg-hero-gradient text-primary-foreground">
-                <h3 className="font-display font-bold text-lg mb-2">
-                  Have Questions?
-                </h3>
-                <p className="text-primary-foreground/80 text-sm mb-4">
-                  Reach out to us anytime!
-                </p>
-                <div className="flex flex-wrap gap-3">
-                  <a
-                    href="mailto:shpe@lmu.edu"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors text-sm font-medium"
-                  >
-                    <Mail size={16} /> shpe@lmu.edu
-                  </a>
-                  <a
-                    href="https://instagram.com/shpelmu"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors text-sm font-medium"
-                  >
-                    <Instagram size={16} /> @shpelmu
-                  </a>
+                  <div className="flex-1">
+                    <h4 className="font-semibold">{event.title}</h4>
+                    <p className="text-sm text-muted-foreground">
+                      {event.time}
+                    </p>
+                  </div>
+                  <ChevronRight className="text-muted-foreground" />
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 md:py-28 relative overflow-hidden">
+      {/* ================= CTA ================= */}
+      <section className="relative overflow-hidden py-28">
         <div className="absolute inset-0 bg-hero-gradient" />
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E')] opacity-50" />
-
-        <div className="container relative z-10 mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-primary-foreground mb-6">
+        <div className="relative z-10 text-center text-white">
+          <h2 className="mb-6 text-4xl font-bold">
             Ready to Join Our <span className="text-gold">Familia</span>?
           </h2>
-          <p className="text-lg text-primary-foreground/80 max-w-2xl mx-auto mb-8">
-            Become part of a supportive community that will help you grow
-            academically, professionally, and personally.
+          <p className="mx-auto mb-8 max-w-2xl text-white/80">
+            Become part of a supportive community that helps you grow in every
+            way.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex justify-center gap-4">
             <Button variant="hero" size="lg" asChild>
-              <a
-                href="https://shpe.org"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://shpe.org" target="_blank" rel="noreferrer">
                 Join SHPE National
               </a>
             </Button>
@@ -359,6 +274,4 @@ const Index = () => {
       </section>
     </>
   );
-};
-
-export default Index;
+}
