@@ -26,7 +26,6 @@ const statistics = [
     number: "#21",
     description: "Best Undergraduate Engineering Program",
     additionalInfo: "U.S. News & World Report, 2026",
-
   },
 ];
 
@@ -106,7 +105,7 @@ export default function Page() {
               {/* 🔴 LMU-style accent bar */}
               <div
                 aria-hidden="true"
-                className="hidden md:block absolute left-[-100vw] top-3 h-16 w-[110vw] bg-primary z-0"
+                className="hidden md:block absolute left-[-100vw] top-3 h-16 w-[110vw] bg-[#AB0C2F] z-0" // LMU Crimson
               />
 
               <p className="relative z-10 mb-4 text-2xl md:text-xl lg:text-2xl font-semibold tracking-wide text-white">
@@ -114,7 +113,7 @@ export default function Page() {
               </p>
 
               <h1 className="relative z-10 font-display text-5xl font-bold leading-[0.95] tracking-tight text-white md:text-7xl lg:text-8xl">
-                Make it <span className="text-gold">matter.</span>
+                Make it <span className="text-[#0076A5]">matter.</span> {/* LMU Blue */}
               </h1>
 
               <p className="relative z-10 mt-6 max-w-2xl text-base leading-relaxed text-white/80 md:text-lg">
@@ -154,15 +153,15 @@ export default function Page() {
       </section>
 
       {/* ================= WHO WE ARE ================= */}
-      <section className="bg-pattern py-24">
+      <section className="bg-[#F5F5F5] py-24"> {/* Light Gray Background */}
         <div className="container mx-auto px-6">
           <div className="grid gap-12 lg:grid-cols-2">
             <div>
-              <span className="mb-4 inline-block rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">
+              <span className="mb-4 inline-block rounded-full bg-[#AB0C2F]/10 px-4 py-1.5 text-sm font-medium text-[#AB0C2F]"> {/* LMU Crimson */}
                 Who We Are
               </span>
-              <h2 className="mb-6 text-4xl font-bold">
-                What is <span className="text-primary">SHPE</span>?
+              <h2 className="mb-6 text-4xl font-bold text-[#AB0C2F]"> {/* LMU Crimson */}
+                What is SHPE? {/* LMU Blue */}
               </h2>
               <p className="text-lg text-muted-foreground">
                 SHPE (Society of Hispanic Professional Engineers) is dedicated
@@ -187,7 +186,7 @@ export default function Page() {
           <div className="mt-16 grid grid-cols-2 gap-12">
             {statistics.map((stat) => (
               <div key={stat.number} className="text-center">
-                <div className="text-4xl font-bold text-primary">{stat.number}</div>
+                <div className="text-4xl font-bold text-[#0076A5]">{stat.number}</div> {/* LMU Blue */}
                 <p className="mt-2 text-xl">{stat.description}</p>
                 {stat.additionalInfo && (
                   <p className="text-sm text-muted-foreground">{stat.additionalInfo}</p>
@@ -200,10 +199,10 @@ export default function Page() {
             {pillars.map((pillar) => (
               <div
                 key={pillar.title}
-                className="rounded-2xl border bg-card p-8 transition hover:-translate-y-2 hover:shadow-lg"
+                className="rounded-2xl border bg-white p-8 transition hover:-translate-y-2 hover:shadow-lg"
               >
-                <pillar.icon className="mb-4 h-8 w-8 text-primary" />
-                <h3 className="mb-2 text-xl font-bold">{pillar.title}</h3>
+                <pillar.icon className="mb-4 h-8 w-8 text-[#0076A5]" /> {/* LMU Blue */}
+                <h3 className="mb-2 text-xl font-bold text-[#0076A5]">{pillar.title}</h3> {/* LMU Blue */}
                 <p className="text-muted-foreground">{pillar.description}</p>
               </div>
             ))}
@@ -220,14 +219,14 @@ export default function Page() {
           />
 
           <div>
-            <h3 className="mb-6 text-2xl font-bold">Upcoming Events</h3>
+            <h3 className="mb-6 text-2xl font-bold text-[#0076A5]">Upcoming Events</h3> {/* LMU Blue */}
             <div className="space-y-4">
               {upcomingEvents.map((event, i) => (
                 <div
                   key={i}
                   className="flex items-center gap-4 rounded-xl border bg-card p-5 hover:shadow"
                 >
-                  <div className="flex h-16 w-16 flex-col items-center justify-center rounded-xl bg-primary text-white">
+                  <div className="flex h-16 w-16 flex-col items-center justify-center rounded-xl bg-[#0076A5] text-white"> {/* LMU Blue */}
                     <span className="text-xs uppercase">
                       {event.date.split(" ")[0]}
                     </span>
@@ -251,13 +250,13 @@ export default function Page() {
 
       {/* ================= CTA ================= */}
       <section className="relative overflow-hidden py-28">
-        <div className="absolute inset-0 bg-hero-gradient" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#AB0C2F] to-[#0076A5]" /> {/* LMU Crimson to LMU Blue */}
         <div className="relative z-10 text-center text-white">
           <h2 className="mb-6 text-4xl font-bold">
-            Ready to Join Our <span className="text-gold">Familia</span>?
+            Want to Learn More? 
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-white/80">
-            Become part of a supportive community that helps you grow in every
+            We'd love to connect with you. Become part of a supportive community that helps you grow in every
             way.
           </p>
           <div className="flex justify-center gap-4">
