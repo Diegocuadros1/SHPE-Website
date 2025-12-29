@@ -38,7 +38,7 @@ export function Navbar() {
 
           <div className="leading-none">
             <div className="text-white font-semibold tracking-tight text-lg md:text-xl">
-              SHPE LMU
+              Loyola Marymount University
             </div>
             <div className="mt-1 hidden sm:block text-white/70 text-[11px] tracking-[0.22em] uppercase">
               Society of Hispanic Professional Engineers
