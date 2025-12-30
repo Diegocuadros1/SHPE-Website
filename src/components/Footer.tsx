@@ -119,7 +119,7 @@ export function Footer() {
             All rights reserved.
           </p>
           <p className="text-xs text-black/50">
-            Changing the world through STEM 
+            Built by Sebastian Rocha & Diego Cuartodos
           </p>
         </div>
       </div>

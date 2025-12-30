@@ -81,7 +81,7 @@ export default function Page() {
             playsInline
             className="h-full w-full object-cover"
           >
-            <source src="/SHPEsgiving .mp4" type="video/mp4" />
+            <source src="/SHPEsgiving.mp4" type="video/mp4" />
           </video>
 
           {/* Dark overlay */}
