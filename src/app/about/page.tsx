@@ -257,7 +257,7 @@ const About = () => {
   const selectedMember = useMemo(
     () => leadership.find((m) => m.id === selectedId) || null,
     [selectedId]
-  );adviso
+  );advisors
 
   const openMember = (member) => {
     if (member?.isPlaceholder) return;
