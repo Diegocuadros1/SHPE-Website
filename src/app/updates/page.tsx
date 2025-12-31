@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Calendar, ArrowRight, Tag } from "lucide-react";
 
@@ -76,17 +78,20 @@ const News = () => {
 
   return (
     <>
-      {/* Hero Section */}
+      {/* HERO */}
       <section className="relative min-h-[50vh] flex items-center overflow-hidden">
-        {/* Background Image with Overlay */}
         <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1920&h=800&fit=crop"
-            alt="Conference event"
+          <video
+            src="/OurImpact.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-crimson/90 via-crimson-dark/85 to-crimson/90" />
         </div>
+
         <div className="container relative z-10 mx-auto px-4 text-center py-20">
           <span className="inline-block px-4 py-2 rounded-full bg-gold/20 text-gold font-medium text-sm mb-6 border border-gold/30">
             Stay Informed
@@ -100,7 +105,7 @@ const News = () => {
         </div>
       </section>
 
-      {/* Featured News */}
+      {/* FEATURED NEWS */}
       <section className="py-20 md:py-28 bg-pattern">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-3 mb-10">
@@ -130,13 +135,14 @@ const News = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-                  <div className="absolute bottom-4 left-4 flex items-center gap-3">
+                  <div className="absolute bottom-4 left-4">
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary text-primary-foreground text-xs font-semibold">
                       <Tag size={12} />
                       {item.category}
                     </span>
                   </div>
                 </div>
+
                 <div className="p-6">
                   <span className="text-sm text-muted-foreground">
                     {item.date}
@@ -148,7 +154,7 @@ const News = () => {
                     {item.excerpt}
                   </p>
                   <Button variant="link" className="p-0 h-auto group/btn">
-                    Read More{" "}
+                    Read More
                     <ArrowRight
                       size={16}
                       className="ml-1 group-hover/btn:translate-x-1 transition-transform"
@@ -159,10 +165,11 @@ const News = () => {
             ))}
           </div>
 
-          {/* Regular News Grid */}
+          {/* ALL UPDATES */}
           <h3 className="text-xl font-display font-bold text-foreground mb-6">
             All Updates
           </h3>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {regularNews.map((item) => (
               <article
@@ -176,18 +183,21 @@ const News = () => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
+
                 <div className="p-5">
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-gold/20 text-gold-dark text-xs font-medium">
+                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-gold/20 text-gold-dark text-xs font-medium">
                       {item.category}
                     </span>
                     <span className="text-xs text-muted-foreground">
                       {item.date}
                     </span>
                   </div>
+
                   <h4 className="font-display font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
                     {item.title}
                   </h4>
+
                   <p className="text-sm text-muted-foreground line-clamp-2">
                     {item.excerpt}
                   </p>
@@ -198,7 +208,7 @@ const News = () => {
         </div>
       </section>
 
-      {/* Newsletter CTA */}
+      {/* CTA */}
       <section className="py-20 md:py-28 bg-muted/50">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
@@ -206,11 +216,11 @@ const News = () => {
               Never Miss an Update
             </h2>
             <p className="text-muted-foreground mb-8">
-              Follow us on social media and join our mailing list to stay
-              connected with SHPE LMU.
+              Follow us on social media and join our mailing list to stay connected with SHPE LMU.
             </p>
+
             <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="default" size="lg" asChild>
+              <Button size="lg" asChild>
                 <a
                   href="https://instagram.com/shpelmu"
                   target="_blank"
@@ -219,6 +229,7 @@ const News = () => {
                   Follow on Instagram
                 </a>
               </Button>
+
               <Button variant="outline" size="lg" asChild>
                 <a href="mailto:shpe@lmu.edu">Join Mailing List</a>
               </Button>

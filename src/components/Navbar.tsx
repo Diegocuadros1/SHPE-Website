@@ -10,7 +10,8 @@ import { cn } from "@/lib/utils";
 const navLinks = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
-  { name: "News & Updates", path: "/updates" },
+  { name: "Executive Board", path: "/e-board" },
+  { name: "Our Impact", path: "/updates" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -23,12 +24,13 @@ export function Navbar() {
       {/* Subtle dark fade so text is readable on video */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/70 via-black/40 to-transparent" />
 
-      <nav className="relative mx-auto flex h-16 max-w-7xl items-center justify-between px-6 md:h-20 md:px-10">
+      {/* ✅ Make nav wider + keep everything on ONE line */}
+      <nav className="relative mx-auto flex h-16 max-w-[92rem] items-center justify-between px-6 md:h-20 md:px-10">
         {/* LEFT: Logo */}
-        <Link href="/" className="flex items-center gap-4 mt-">
-          <div className="relative h-20 w-20 md:h-20 md:w-20 lg:h-20 lg:w-20">
+        <Link href="/" className="flex items-center gap-4 shrink-0">
+          <div className="relative h-16 w-16 md:h-20 md:w-20">
             <Image
-              src="/lmu-logo1.png" 
+              src="/lmu-logo1.png"
               alt="LMU Lions"
               fill
               priority
@@ -36,18 +38,19 @@ export function Navbar() {
             />
           </div>
 
-          <div className="leading-none">
-            <div className="text-white font-semibold tracking-tight text-lg md:text-xl">
+          {/* ✅ Prevent this from pushing the links too far right */}
+          <div className="leading-none hidden lg:block">
+            <div className="text-white font-semibold tracking-tight text-lg">
               Loyola Marymount University
             </div>
-            <div className="mt-1 hidden sm:block text-white/70 text-[11px] tracking-[0.22em] uppercase">
+            <div className="mt-1 text-white/70 text-[11px] tracking-[0.22em] uppercase">
               Society of Hispanic Professional Engineers
             </div>
           </div>
         </Link>
 
-        {/* CENTER: Nav links */}
-        <div className="hidden md:flex items-center gap-10">
+        {/* ✅ CENTER: Nav links (no wrapping) */}
+        <div className="hidden md:flex items-center gap-8 lg:gap-10 whitespace-nowrap">
           {navLinks.map((link) => {
             const active = pathname === link.path;
 
@@ -69,20 +72,16 @@ export function Navbar() {
           })}
         </div>
 
-        {/* RIGHT: White Join button ONLY */}
-        <div className="hidden md:block">
+        {/* RIGHT: White Join button */}
+        <div className="hidden md:block shrink-0">
           <a
             href="https://leo.lmu.edu/organization/society-of-hispanic-professional-engineers"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white px-6 py-3 text-sm font-semibold text-primary hover:bg-white/90 transition"
+            className="bg-white px-5 py-3 text-sm font-semibold text-primary hover:bg-white/90 transition whitespace-nowrap"
           >
             Join SHPE @ LMU
           </a>
-
-          
-
-
         </div>
 
         {/* Mobile menu toggle */}
@@ -123,12 +122,12 @@ export function Navbar() {
             })}
 
             <a
-              href="https://shpe.org"
+              href="https://leo.lmu.edu/organization/society-of-hispanic-professional-engineers"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 bg-white py-3 text-center font-semibold text-primary"
             >
-              Join
+              Join SHPE @ LMU
             </a>
           </div>
         </div>

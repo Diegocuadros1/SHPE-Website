@@ -63,12 +63,12 @@ export function Footer() {
                     </li>
                     <li>
                       <FooterLink
-                        href="/Executive Board"
+                        href="/e-board"
                         label="Executive Board"
                       />
                     </li>
                     <li>
-                      <FooterLink href="/Our Impact" label="Our Impact" />
+                      <FooterLink href="/updates" label="Our Impact" />
                     </li>
                   </ul>
                 </div>
