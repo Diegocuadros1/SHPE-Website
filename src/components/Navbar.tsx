@@ -24,9 +24,8 @@ export function Navbar() {
       {/* Subtle dark fade so text is readable on video */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/70 via-black/40 to-transparent" />
 
-      {/* ✅ Make nav wider + keep everything on ONE line */}
       <nav className="relative mx-auto flex h-16 max-w-[92rem] items-center justify-between px-6 md:h-20 md:px-10">
-        {/* LEFT: Logo */}
+        {/* LEFT: Logo + Title */}
         <Link href="/" className="flex items-center gap-4 shrink-0">
           <div className="relative h-16 w-16 md:h-20 md:w-20">
             <Image
@@ -38,18 +37,18 @@ export function Navbar() {
             />
           </div>
 
-          {/* ✅ Prevent this from pushing the links too far right */}
-          <div className="leading-none hidden lg:block">
-            <div className="text-white font-semibold tracking-tight text-lg">
+          {/* ✅ SHOW ON MOBILE TOO */}
+          <div className="leading-none block">
+            <div className="text-white font-semibold tracking-tight text-sm sm:text-base lg:text-lg">
               Loyola Marymount University
             </div>
-            <div className="mt-1 text-white/70 text-[11px] tracking-[0.22em] uppercase">
+            <div className="mt-1 text-white/70 text-[9px] sm:text-[10px] lg:text-[11px] tracking-[0.22em] uppercase">
               Society of Hispanic Professional Engineers
             </div>
           </div>
         </Link>
 
-        {/* ✅ CENTER: Nav links (no wrapping) */}
+        {/* CENTER: Nav links */}
         <div className="hidden md:flex items-center gap-8 lg:gap-10 whitespace-nowrap">
           {navLinks.map((link) => {
             const active = pathname === link.path;
@@ -72,7 +71,7 @@ export function Navbar() {
           })}
         </div>
 
-        {/* RIGHT: White Join button */}
+        {/* RIGHT: Join button (desktop only) */}
         <div className="hidden md:block shrink-0">
           <a
             href="https://leo.lmu.edu/organization/society-of-hispanic-professional-engineers"

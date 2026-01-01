@@ -140,7 +140,7 @@ export default function Page() {
                   href="/updates"
                   className="inline-flex items-center px-6 py-3 font-semibold text-white/90 border border-white/60 hover:bg-white/10"
                 >
-                  News & Updates
+                  Our Impact
                 </Link>
               </div>
 
