@@ -11,8 +11,8 @@ const initiatives = [
     excerpt:
       "Our first general meeting of the semester—meet the board, learn what SHPE is about, and get plugged into upcoming events and opportunities.",
     highlight: "Meet the board • Upcoming events • Get involved",
-    image:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900&h=700&fit=crop",
+    // ✅ put this file in /public/General_Meeting_#1.mp4
+    video: "/GM1.mp4",
   },
   {
     id: "beach-social",
@@ -22,7 +22,7 @@ const initiatives = [
       "A community night by the beach to build friendships, celebrate culture, and connect with other students in a relaxed setting.",
     highlight: "Community • Culture • Connection",
     image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=900&h=700&fit=crop",
+      "/LatinxBonfire2.jpg",
   },
   {
     id: "resume-workshop",
@@ -32,7 +32,7 @@ const initiatives = [
       "Hands-on resume support and real feedback so members can apply confidently to internships, research roles, and jobs.",
     highlight: "Resume feedback • Templates • Career prep",
     image:
-      "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=900&h=700&fit=crop",
+      "/ResumeWorkshop.jpg",
   },
   {
     id: "linkedin-workshop",
@@ -42,11 +42,11 @@ const initiatives = [
       "Build a stronger LinkedIn profile, learn networking best practices, and position yourself for opportunities.",
     highlight: "Profile upgrades • Networking • Recruiter tips",
     image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&h=700&fit=crop",
+      "/LinkedlnWorkshop1.jpg",
   },
   {
     id: "lmu-ucla-social",
-    category: "Community",
+    category: "Social",
     title: "LMU x UCLA Social",
     excerpt:
       "A cross-campus social to connect with other SHPE members, share experiences, and build community beyond LMU.",
@@ -56,13 +56,13 @@ const initiatives = [
   },
   {
     id: "conference-prep",
-    category: "SHPE Nationals",
+    category: "Professional Development",
     title: "Conference Prep Meeting",
     excerpt:
       "We prepped members for conference weekend—what to bring, how to approach the career fair, and how to maximize the experience.",
     highlight: "Game plan • Career fair • What to expect",
     image:
-      "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=900&h=700&fit=crop",
+      "/ConferencePrepMeeting1.jpg",
   },
   {
     id: "elevator-pitch",
@@ -72,7 +72,7 @@ const initiatives = [
       "Practice your pitch, get feedback, and learn how to confidently share your story, interests, and goals in 30 seconds.",
     highlight: "Confidence • Practice • Feedback",
     image:
-      "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=900&h=700&fit=crop",
+      "/ElevatorPitchWorkshop1.jpg",
   },
 ];
 
@@ -192,13 +192,26 @@ export default function OurImpact() {
                   </div>
                 </div>
 
-                {/* image at bottom */}
+                {/* ✅ MEDIA at bottom (video for GM1, image for others) */}
                 <div className="relative h-40 overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+                  {item.video ? (
+                    <video
+                      src={item.video}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  )}
+
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 </div>
               </article>
@@ -216,9 +229,9 @@ export default function OurImpact() {
             </div>
             <div>
               <h2 className="text-2xl font-display font-bold text-[#222222]">
-                Featured Updates
+                Featured Events
               </h2>
-              <p className="text-slate-600 text-sm">What we’ve been up to lately</p>
+              <p className="text-slate-600 text-sm"></p>
             </div>
           </div>
 
