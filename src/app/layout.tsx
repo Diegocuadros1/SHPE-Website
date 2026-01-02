@@ -3,6 +3,7 @@ import { Public_Sans } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Toaster } from "@/components/ui/toaster";
 
 const publicSans = Public_Sans({
   subsets: ["latin"],
@@ -28,6 +29,7 @@ export default function RootLayout({
           {/* IMPORTANT: no top padding here so navbar sits on video */}
           <main className="flex-1">{children}</main>
           <Footer />
+          <Toaster />
         </div>
       </body>
     </html>

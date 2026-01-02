@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Mail, MapPin, Instagram, Linkedin, Send, Clock } from "lucide-react";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser"
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -16,13 +17,43 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. We'll get back to you soon!",
-    });
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setIsSubmitting(true)
+
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        {
+          publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!,
+        }
+      );
+
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out. We'll get back to you soon!",
+      }); 
+
+      setIsSubmitting(false)
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("Emailjs Error: ", error)
+      toast({
+        title: "Something went wrong",
+        description: "Please try emailing us directly. Sorry about that!",
+      });
+      setIsSubmitting(false);
+    }
+    
   };
 
   const handleChange = (
@@ -120,8 +151,8 @@ const Contact = () => {
                       className="resize-none"
                     />
                   </div>
-                  <Button type="submit" size="lg" className="w-full bg-[#0076A5] hover:bg-[#005f7a]"> {/* LMU Blue */}
-                    Send Message <Send size={18} className="ml-2" />
+                  <Button type="submit" size="lg" className="w-full bg-[#0076A5] hover:bg-[#005f7a] cursor-pointer"> {/* LMU Blue */}
+                    {isSubmitting ? "submitting" :  "Send Message" } <Send size={18} className="ml-2" />
                   </Button>
                 </form>
               </div>
