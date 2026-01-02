@@ -200,15 +200,11 @@ const EBoardPage = () => {
         </div>
 
         <div className="container relative z-10 mx-auto px-4 text-center py-20">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white font-medium text-sm mb-6 border border-white/15 backdrop-blur">
-            Our Story
-          </span>
           <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">
             Executive Board
           </h1>
           <p className="text-lg text-white/85 max-w-2xl mx-auto">
-            Learn about our mission, values, and the people who make our chapter
-            thrive.
+Meet the leaders behind our mission, programs, and community
           </p>
         </div>
       </section>

@@ -53,8 +53,7 @@ const About = () => {
             About SHPE LMU
           </h1>
           <p className="text-lg text-white/85 max-w-2xl mx-auto">
-            Learn about our mission, values, and the people who make our chapter thrive.
-          </p>
+Discover our mission, values, and the community driving SHPE LMU forward          </p>
         </div>
       </section>
 

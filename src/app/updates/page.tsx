@@ -81,7 +81,7 @@ const featuredUpdates = [
     id: "shpegiving",
     date: "Fall 2025",
     category: "Social",
-    title: "Region 2 SHPE’sgiving",
+    title: "Region 2 SHPE’sgiving @ LMU",
     excerpt:
       "A Region 2 night that brought chapters together for community, culture, and connection across campuses.",
     image: "/shpesgiving01jpg.png",
@@ -229,8 +229,7 @@ export default function OurImpact() {
           </h1>
 
           <p className="text-lg text-white/85 max-w-2xl mx-auto">
-            What we build at SHPE LMU: community, opportunity, and support that
-            helps students thrive.
+See how SHPE LMU creates community, opportunity, and real impact for students in STEM
           </p>
         </div>
       </section>
