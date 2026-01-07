@@ -10,7 +10,49 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-const initiatives = [
+/** ---------------- Types ---------------- */
+
+type Category =
+  | "Professional Development"
+  | "Social"
+  | "Guest Speakers"
+  | "Outreach"
+  | "General Meeting"
+  | "Conference"
+  | "Region 2";
+
+type Initiative = {
+  id: string;
+  category: Category;
+  title: string;
+  excerpt: string;
+  highlight: string;
+  image?: string;
+  video?: string;
+};
+
+type FeaturedUpdate = {
+  id: string;
+  date: string;
+  category: Category;
+  title: string;
+  excerpt: string;
+  image: string;
+  instagramUrl?: string;
+  details?: string[];
+  gallery?: string[];
+};
+
+type TagLegendItem = {
+  label: string;
+  desc: string;
+  dot: string;
+  chip: string;
+};
+
+/** ---------------- Data ---------------- */
+
+const initiatives: Initiative[] = [
   {
     id: "gm1",
     category: "General Meeting",
@@ -76,7 +118,7 @@ const initiatives = [
   },
 ];
 
-const featuredUpdates = [
+const featuredUpdates: FeaturedUpdate[] = [
   {
     id: "shpegiving",
     date: "Fall 2025",
@@ -85,7 +127,7 @@ const featuredUpdates = [
     excerpt:
       "A Region 2 night that brought chapters together for community, culture, and connection across campuses.",
     image: "/shpesgiving01jpg.png",
-    instagramUrl: "https://www.instagram.com/p/DSX96-8EhCg/", 
+    instagramUrl: "https://www.instagram.com/p/DSX96-8EhCg/",
     details: [
       "Connected with Region 2 chapters and met new members across campuses",
       "Community-focused night celebrating culture and familia",
@@ -116,12 +158,12 @@ const featuredUpdates = [
       "/conference/1.jpg",
       "/conference/2.jpg",
       "/conference/3.jpg",
-      "/conference/4.jpg", 
+      "/conference/4.jpg",
     ],
   },
 ];
 
-const tagLegend = [
+const tagLegend: TagLegendItem[] = [
   {
     label: "Professional Development",
     desc: "Resumes, LinkedIn, workshops, conference prep",
@@ -170,9 +212,9 @@ const categoryStyles = {
   "Region 2": {
     pill: "bg-[#AB0C2F]/10 text-[#AB0C2F] border-[#AB0C2F]/20",
   },
-};
+} satisfies Record<Category, { pill: string }>;
 
-function getPillClass(category) {
+function getPillClass(category: Category): string {
   return (
     categoryStyles?.[category]?.pill ??
     "bg-slate-500/10 text-slate-700 border-slate-200"
@@ -180,17 +222,17 @@ function getPillClass(category) {
 }
 
 export default function OurImpact() {
-  const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState(null);
-  const [activeSrc, setActiveSrc] = useState("");
+  const [open, setOpen] = useState<boolean>(false);
+  const [selected, setSelected] = useState<FeaturedUpdate | null>(null);
+  const [activeSrc, setActiveSrc] = useState<string>("");
 
-  const combinedGallery = useMemo(() => {
+  const combinedGallery = useMemo<string[]>(() => {
     if (!selected) return [];
     const base = selected.gallery || [];
     return [...base];
   }, [selected]);
 
-  const openDetails = (item) => {
+  const openDetails = (item: FeaturedUpdate) => {
     setSelected(item);
     const first = (item.gallery && item.gallery[0]) || item.image || "";
     setActiveSrc(first);
@@ -204,7 +246,8 @@ export default function OurImpact() {
   };
 
   // ✅ fallback if any featured event doesn’t have a link yet
-  const instagramHref = selected?.instagramUrl || "https://instagram.com/shpelmu";
+  const instagramHref =
+    selected?.instagramUrl || "https://instagram.com/shpelmu";
 
   return (
     <>
@@ -229,7 +272,8 @@ export default function OurImpact() {
           </h1>
 
           <p className="text-lg text-white/85 max-w-2xl mx-auto">
-See how SHPE LMU creates community, opportunity, and real impact for students in STEM
+            See how SHPE LMU creates community, opportunity, and real impact for
+            students in STEM
           </p>
         </div>
       </section>
@@ -352,7 +396,7 @@ See how SHPE LMU creates community, opportunity, and real impact for students in
                     />
                   ) : (
                     <img
-                      src={item.image}
+                      src={item.image ?? ""}
                       alt={item.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
@@ -434,7 +478,10 @@ See how SHPE LMU creates community, opportunity, and real impact for students in
       </section>
 
       {/* MODAL */}
-      <Dialog open={open} onOpenChange={(v) => (v ? setOpen(true) : closeModal())}>
+      <Dialog
+        open={open}
+        onOpenChange={(v: boolean) => (v ? setOpen(true) : closeModal())}
+      >
         <DialogContent className="sm:max-w-[980px] rounded-3xl p-0 overflow-hidden">
           {selected && (
             <div className="grid md:grid-cols-[1.25fr_1fr]">
@@ -456,7 +503,9 @@ See how SHPE LMU creates community, opportunity, and real impact for students in
                       <Tag size={12} />
                       {selected.category}
                     </span>
-                    <span className="text-white/85 text-sm">{selected.date}</span>
+                    <span className="text-white/85 text-sm">
+                      {selected.date}
+                    </span>
                   </div>
                   <h3 className="mt-2 text-2xl md:text-3xl font-display font-bold text-white">
                     {selected.title}
@@ -466,10 +515,14 @@ See how SHPE LMU creates community, opportunity, and real impact for students in
 
               <div className="p-6 md:p-7 bg-white">
                 <DialogHeader>
-                  <DialogTitle className="sr-only">{selected.title}</DialogTitle>
+                  <DialogTitle className="sr-only">
+                    {selected.title}
+                  </DialogTitle>
                 </DialogHeader>
 
-                <p className="text-slate-700 leading-relaxed">{selected.excerpt}</p>
+                <p className="text-slate-700 leading-relaxed">
+                  {selected.excerpt}
+                </p>
 
                 {selected.details?.length ? (
                   <ul className="mt-4 space-y-2 text-slate-700">
@@ -524,7 +577,6 @@ See how SHPE LMU creates community, opportunity, and real impact for students in
                     Close
                   </Button>
 
-                  {/* ✅ per-featured-event instagram link */}
                   <Button
                     variant="outline"
                     className="border-[#AB0C2F] text-[#AB0C2F] hover:bg-[#AB0C2F]/10"
@@ -554,8 +606,9 @@ See how SHPE LMU creates community, opportunity, and real impact for students in
             </h2>
 
             <p className="mt-3 text-slate-600">
-              Follow us for updates and reach out to get involved. Whether you’re
-              new to SHPE or already part of the familia, there’s a place for you.
+              Follow us for updates and reach out to get involved. Whether
+              you’re new to SHPE or already part of the familia, there’s a place
+              for you.
             </p>
 
             <div className="mt-6 flex flex-wrap justify-center gap-4">

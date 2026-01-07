@@ -149,7 +149,7 @@ function initials(name = "") {
   return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
 }
 
-function RoleBadge({ role }) {
+function RoleBadge({ role }: { role: string }) {
   const style =
     role === "Co-President"
       ? "bg-[#AB0C2F]/10 text-[#AB0C2F] border-[#AB0C2F]/20"
@@ -176,7 +176,7 @@ const EBoardPage = () => {
     [selectedId]
   );
 
-  const openMember = (member) => {
+  const openMember = (member: any) => {
     if (member?.isPlaceholder) return;
     setSelectedId(member.id);
   };
@@ -204,7 +204,7 @@ const EBoardPage = () => {
             Executive Board
           </h1>
           <p className="text-lg text-white/85 max-w-2xl mx-auto">
-Meet the leaders behind our mission, programs, and community
+            Meet the leaders behind our mission, programs, and community
           </p>
         </div>
       </section>
@@ -297,7 +297,10 @@ Meet the leaders behind our mission, programs, and community
             })}
           </div>
 
-          <Dialog open={!!selectedMember} onOpenChange={(o) => !o && closeMember()}>
+          <Dialog
+            open={!!selectedMember}
+            onOpenChange={(o) => !o && closeMember()}
+          >
             <DialogContent className="w-[calc(100vw-1.5rem)] sm:w-full sm:max-w-[980px] max-h-[85vh] overflow-y-auto p-4 sm:p-6">
               {selectedMember && (
                 <>
