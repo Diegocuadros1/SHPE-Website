@@ -62,10 +62,7 @@ export function Footer() {
                       <FooterLink href="/about" label="About" />
                     </li>
                     <li>
-                      <FooterLink
-                        href="/e-board"
-                        label="Executive Board"
-                      />
+                      <FooterLink href="/e-board" label="Executive Board" />
                     </li>
                     <li>
                       <FooterLink href="/updates" label="Our Impact" />
@@ -159,7 +156,7 @@ export function Footer() {
   );
 }
 
-function FooterLink({ href, label }) {
+function FooterLink({ href, label }: { href: string; label: string }) {
   return (
     <Link
       href={href}
