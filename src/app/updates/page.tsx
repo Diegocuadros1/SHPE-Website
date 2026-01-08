@@ -166,13 +166,13 @@ const featuredUpdates: FeaturedUpdate[] = [
 const tagLegend: TagLegendItem[] = [
   {
     label: "Professional Development",
-    desc: "Resumes, LinkedIn, workshops, conference prep",
+    desc: "Resume Worshops, LinkedIn Workshops, Conference Prep, and much more",
     dot: "bg-[#0076A5]",
     chip: "bg-[#0076A5]/10 text-[#0076A5] border-[#0076A5]/20",
   },
   {
     label: "Socials",
-    desc: "Community nights, mixers, cross-campus hangs",
+    desc: "Community nights, Mixers, Cross-campus hangs",
     dot: "bg-emerald-500",
     chip: "bg-emerald-500/10 text-emerald-700 border-emerald-500/20",
   },
@@ -184,7 +184,7 @@ const tagLegend: TagLegendItem[] = [
   },
   {
     label: "Outreach",
-    desc: "STEM service, K-12 events, giving back",
+    desc: "STEM service, K to 12 outreach, and community impact",
     dot: "bg-amber-500",
     chip: "bg-amber-500/10 text-amber-800 border-amber-500/20",
   },
