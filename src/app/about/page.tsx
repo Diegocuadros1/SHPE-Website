@@ -120,6 +120,37 @@ Discover how our history, values, and mission come together to empower Hispanic 
         </div>
       </section>
 
+            {/* ================= VALUES ================= */}
+      <section className="pt-12 pb-16 bg-[#F5F5F5]">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-[#0076A5]">
+              Our <span className="text-[#AB0C2F]">Core Values</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((value) => (
+              <div
+                key={value.title}
+                className="p-6 rounded-2xl bg-white border border-[#DDDDDD] hover:shadow-lg transition text-center"
+              >
+                <div className="w-14 h-14 mx-auto rounded-xl bg-[#0076A5]/20 flex items-center justify-center mb-5">
+                  <value.icon className="w-7 h-7 text-[#0076A5]" />
+                </div>
+                <h3 className="text-lg font-display font-bold text-[#0076A5] mb-2">
+                  {value.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {value.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
       {/* ================= SCRAPBOOK HISTORY ================= */}
       <section className="py-16 md:py-20 bg-[#F5F5F5]">
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-start">
@@ -254,39 +285,6 @@ Discover how our history, values, and mission come together to empower Hispanic 
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-            {/* ================= VALUES ================= */}
-      <section className="pt-12 pb-16 bg-[#F5F5F5]">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-10">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#0076A5]/20 text-[#0076A5] text-sm mb-3">
-              What Drives Us
-            </span>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-[#0076A5]">
-              Our <span className="text-[#AB0C2F]">Core Values</span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value) => (
-              <div
-                key={value.title}
-                className="p-6 rounded-2xl bg-white border border-[#DDDDDD] hover:shadow-lg transition text-center"
-              >
-                <div className="w-14 h-14 mx-auto rounded-xl bg-[#0076A5]/20 flex items-center justify-center mb-5">
-                  <value.icon className="w-7 h-7 text-[#0076A5]" />
-                </div>
-                <h3 className="text-lg font-display font-bold text-[#0076A5] mb-2">
-                  {value.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {value.description}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </section>

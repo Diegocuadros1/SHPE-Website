@@ -311,16 +311,18 @@ export default function Page() {
 
           {/* stack on mobile */}
           <div className="mx-auto flex max-w-md flex-col gap-3 sm:max-w-none sm:flex-row sm:justify-center sm:gap-4">
+
             <Button
               variant="hero"
               size="lg"
               asChild
               className="w-full sm:w-auto"
             >
-              <a href="https://shpe.org" target="_blank" rel="noreferrer">
-                Join SHPE National
+              <a href="https://leo.lmu.edu/organization/society-of-hispanic-professional-engineers" target="_blank" rel="noreferrer">
+                Join SHPE @ LMU
               </a>
             </Button>
+            
             <Button
               variant="heroOutline"
               size="lg"

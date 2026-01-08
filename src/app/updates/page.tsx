@@ -295,7 +295,7 @@ export default function OurImpact() {
                 </div>
 
                 <h2 className="text-3xl md:text-5xl font-display font-bold text-[#0076A5]">
-                  Programs that create real momentum
+                Annual programs that create real momentum   
                 </h2>
 
                 <p className="mt-4 text-slate-600 leading-relaxed">
