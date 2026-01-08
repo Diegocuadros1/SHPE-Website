@@ -50,8 +50,8 @@ const leadership = [
     major: "Mechanical Engineering",
     year: "Senior",
     photo:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&h=600&fit=crop&crop=face",
-    funPhoto: "/fun.png",
+      "/bellafront.jpg",
+    funPhoto: "/bellafun.jpg",
     bio: "Driven by community impact and building spaces where members can lead with confidence and cultural pride.",
     focus: ["Leadership development", "Community", "Event execution"],
     email: "shpe.lmu@example.com",
@@ -80,28 +80,28 @@ const leadership = [
     major: "Computer Engineering",
     year: "Sophomore",
     photo:
-      "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&h=600&fit=crop&crop=face",
-    funPhoto: "/fun.png",
-    bio: "Keeps the chapter financially strong so we can fund events, travel, and resources that directly benefit members.",
-    focus: ["Budgeting", "Funding", "Sponsorship support"],
-    email: "shpe.lmu@example.com",
-    linkedin: "https://www.linkedin.com",
-    funFact: "I track everything (yes, everything) 📊",
+      "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&h=600&fit=crop&crop=face",
+    funPhoto: "/simonfun.jpg",
+    bio: " As an international and bicultural student, I have a unique perspective of the world that drives me to want to create change, and SHPE is one of the ways that helps me do that. I’m a very driven person who tries to be efficient and effective in everything I do, whether it’s school, investing, or my work. I’m also a very active person, I love to play sports, but I mainly practice golf, tennis, and soccer.",
+    focus: ["Funding", "Interpersonal Relationships", "Financial Management"],
+    email: " sherna95@lion.lmu.edu",
+    linkedin: "https://www.linkedin.com/in/simonhernandez-ce/",
+    funFact: " I am a scratch golfer ",
   },
   {
     id: "isabel-c",
     role: "Media/Marketing",
-    name: "Isabel Clemente",
+    name: "Isabela Clemente",
     major: "Civil Engineering",
     year: "Senior",
     photo:
       "https://images.unsplash.com/photo-1524503033411-f7a2b6b1f2c8?w=600&h=600&fit=crop&crop=face",
-    funPhoto: "/fun.png",
-    bio: "Tells our story through content, highlights member wins, and makes SHPE LMU look as good as it feels to be part of it.",
-    focus: ["Branding", "Social media", "Content & design"],
-    email: "shpe.lmu@example.com",
+    funPhoto: "/isaclemfunphoto.jpg",
+    bio: "I’m a first-generation Hispanic student majoring in Civil and Environmental Engineering, driven by a passion for sustainability, community impact, and representation in STEM. As a member of SHPE, I’m motivated to help create an inclusive space that empowers students like me to grow professionally, academically, and personally. I’m passionate about using my skills to amplify SHPE’s mission, strengthen outreach, and inspire future Hispanic engineers. My goal is to contribute to a supportive community that uplifts our voices and prepares us to make meaningful change.",
+    focus: ["Community Outreach", " Marketing Coordinator",],
+    email: "isabelachdez03@gmail.com",
     linkedin: "https://www.linkedin.com",
-    funFact: "Send me your event pics 👀📸",
+    funFact: "I believe in a spiritual reality above our own",
   },
   {
     id: "academic-chair",
@@ -224,8 +224,8 @@ const EBoardPage = () => {
             </h2>
 
             <p className="text-[#222222]">
-              Meet the individuals who help lead and support SHPE LMU. Click any
-              member to learn more and connect.
+              Click any
+              member to learn more and connect!
             </p>
           </div>
 
