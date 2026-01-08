@@ -23,27 +23,39 @@ const scrapbookImages = [
 /* These are ONLY for the ImageGallery at the bottom */
 const galleryImages = [
   {
-    src: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&fit=crop",
+    src: "/NASAjpl.png",
     alt: "Celebration",
   },
   {
-    src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&fit=crop",
+    src: "/LAdwp.png",
     alt: "Collaboration",
   },
   {
-    src: "https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=1200&fit=crop",
+    src: "/amazon.png",
     alt: "Community moment",
   },
   {
-    src: "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=1200&fit=crop",
+    src: "/google.png",
     alt: "Team photo",
   },
   {
-    src: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1200&fit=crop",
+    src: "/northrup.png",
     alt: "Workshop",
   },
   {
-    src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&fit=crop",
+    src: "/blueorigin.png",
+    alt: "Meeting",
+  },
+  {
+    src: "/RandS.png",
+    alt: "Meeting",
+  },
+  {
+    src: "/Raytheon-Logo.png",
+    alt: "Meeting",
+  },
+  {
+    src: "/LLNL.png",
     alt: "Meeting",
   },
 ];
@@ -177,38 +189,7 @@ Discover how our history, values, and mission come together to empower Hispanic 
         </div>
       </section>
 
-      {/* ================= VALUES ================= */}
-      <section className="pt-12 pb-16 bg-[#F5F5F5]">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-10">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#0076A5]/20 text-[#0076A5] text-sm mb-3">
-              What Drives Us
-            </span>
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-[#0076A5]">
-              Our <span className="text-[#AB0C2F]">Core Values</span>
-            </h2>
-          </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value) => (
-              <div
-                key={value.title}
-                className="p-6 rounded-2xl bg-white border border-[#DDDDDD] hover:shadow-lg transition text-center"
-              >
-                <div className="w-14 h-14 mx-auto rounded-xl bg-[#0076A5]/20 flex items-center justify-center mb-5">
-                  <value.icon className="w-7 h-7 text-[#0076A5]" />
-                </div>
-                <h3 className="text-lg font-display font-bold text-[#0076A5] mb-2">
-                  {value.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {value.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ================= MISSION ================= */}
       <section className="py-16 md:py-20 bg-[#F5F5F5]">
@@ -277,16 +258,53 @@ Discover how our history, values, and mission come together to empower Hispanic 
         </div>
       </section>
 
-      {/* ================= PHOTO GALLERY ================= */}
-      <section className="pt-8 pb-12 bg-[#0076A5]">
+            {/* ================= VALUES ================= */}
+      <section className="pt-12 pb-16 bg-[#F5F5F5]">
         <div className="container mx-auto px-4">
-          <p className="text-center text-white/80 text-sm mb-4">
-            Click any image to view larger
-          </p>
-          {/* Uses ONLY galleryImages (different from scrapbookImages) */}
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[#0076A5]/20 text-[#0076A5] text-sm mb-3">
+              What Drives Us
+            </span>
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-[#0076A5]">
+              Our <span className="text-[#AB0C2F]">Core Values</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((value) => (
+              <div
+                key={value.title}
+                className="p-6 rounded-2xl bg-white border border-[#DDDDDD] hover:shadow-lg transition text-center"
+              >
+                <div className="w-14 h-14 mx-auto rounded-xl bg-[#0076A5]/20 flex items-center justify-center mb-5">
+                  <value.icon className="w-7 h-7 text-[#0076A5]" />
+                </div>
+                <h3 className="text-lg font-display font-bold text-[#0076A5] mb-2">
+                  {value.title}
+                </h3>
+                <p className="text-sm text-muted-foreground">
+                  {value.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* ================= PARTNERS & SPEAKERS ================= */}
+      <section className="bg-[#0076A5] pt-12 pb-12">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-3">
+            Industry Partners & Guest Speakers
+          </h2>
+          <p className="text-white/80 text-sm mb-6">
+Interested in sponsoring SHPE LMU? Your support helps shape the next generation of engineers, innovators, and leaders.          </p>
+
           <ImageGallery images={galleryImages} />
         </div>
       </section>
+
     </>
   );
 };

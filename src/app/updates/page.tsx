@@ -144,7 +144,7 @@ const featuredUpdates: FeaturedUpdate[] = [
     id: "conference",
     date: "Fall 2025",
     category: "Professional Development",
-    title: "SHPE National Convention",
+    title: "2025 SHPE National Convention",
     excerpt:
       "Conference highlights—sessions, networking, and career fair takeaways that helped members grow professionally.",
     image: "/shpeconv01.png",
