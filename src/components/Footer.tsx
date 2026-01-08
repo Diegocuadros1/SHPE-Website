@@ -135,7 +135,8 @@ export function Footer() {
             <div className="grid grid-cols-1 lg:grid-cols-12 items-end">
               <div className="lg:col-span-9 px-8 py-10 md:px-10 md:py-12">
                 <div className="select-none font-display font-extrabold tracking-tight leading-none text-[64px] sm:text-[92px] md:text-[120px] lg:text-[140px] text-slate-900">
-                  SHPE LMU
+                  <span className="text-[#0076A5]">SHPE</span>{" "}
+                  <span className="text-[#AB0C2F]">LMU</span>
                 </div>
               </div>
 
@@ -145,7 +146,7 @@ export function Footer() {
                   reserved.
                 </p>
                 <p className="mt-2 text-xs text-slate-500">
-                  Built by Sebastian Rocha & Diego Cuartodos
+                  Built by Sebastian Rocha & Diego Cuadros
                 </p>
               </div>
             </div>
