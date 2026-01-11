@@ -35,8 +35,8 @@ const leadership = [
     major: "Computer Science",
     year: "Junior",
     photo:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=600&fit=crop&crop=face",
-    funPhoto: "/fun.png",
+      "/dcpropic1.png",
+    funPhoto: "/dcpropic.png",
     bio: "Passionate about professional development and helping members feel supported from day one—whether it’s resumes, interviews, or finding community.",
     focus: ["Professional development", "Mentorship", "Workshops"],
     email: "shpe.lmu@example.com",
@@ -52,11 +52,11 @@ const leadership = [
     photo:
       "/bellafront.jpg",
     funPhoto: "/bellafun.jpg",
-    bio: "Driven by community impact and building spaces where members can lead with confidence and cultural pride.",
-    focus: ["Leadership development", "Community", "Event execution"],
-    email: "shpe.lmu@example.com",
-    linkedin: "https://www.linkedin.com",
-    funFact: "I’m a coffee snob (politely) ☕",
+    bio: "I am a first-generation Latina engineering student passionate about building community and creating opportunities for others. As a leader within SHPE, I saw this club as the perfect space to support and uplift first-generation students while also creating opportunities to network with professionals and industry leaders. Leading this organization allows me to both help younger generations navigate their paths and intentionally build my own professional journey. I enjoy offering guidance to anyone who needs support, and my goal is to create lasting pathways to success through mentorship, community, and connection.",
+    focus: ["Chapter Presence and Outreach", "Member Experience and Community", "Organization and Leadership Development"],
+    email: "isabela9.jimenez9@gmail.com",
+    linkedin: "https://www.linkedin.com/in/isabelajimenez26/",
+    funFact: "I studied abroad in Bonn, Germany",
   },
   {
     id: "natali",

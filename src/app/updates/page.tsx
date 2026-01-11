@@ -58,7 +58,7 @@ const initiatives: Initiative[] = [
     category: "General Meeting",
     title: "General Meeting #1",
     excerpt:
-      "Our first general meeting of the semester—meet the board, learn what SHPE is about, and get plugged into upcoming events and opportunities.",
+      "A welcoming introduction to SHPE where students meet the board, learn about upcoming events, and get connected to opportunities that support their growth.",
     highlight: "Meet the board • Upcoming events • Get involved",
     video: "/GM1.mp4",
   },
@@ -67,7 +67,7 @@ const initiatives: Initiative[] = [
     category: "Social",
     title: "Latinx Beach Social / Bonfire",
     excerpt:
-      "A community night by the beach to build friendships, celebrate culture, and connect with other students in a relaxed setting.",
+      "A community night by the beach to build friendships, celebrate culture, and connect with other students.",
     highlight: "Community • Culture • Connection",
     image: "/LatinxBonfire2.jpg",
   },
@@ -76,7 +76,7 @@ const initiatives: Initiative[] = [
     category: "Professional Development",
     title: "Resume Building Workshop",
     excerpt:
-      "Hands-on resume support and real feedback so members can apply confidently to internships, research roles, and jobs.",
+      "Hands on resume support and real feedback so members can apply confidently to internships, research roles, and jobs.",
     highlight: "Resume feedback • Templates • Career prep",
     image: "/ResumeWorkshop.jpg",
   },
@@ -103,7 +103,7 @@ const initiatives: Initiative[] = [
     category: "Professional Development",
     title: "Conference Prep Meeting",
     excerpt:
-      "We prepped members for conference weekend—what to bring, how to approach the career fair, and how to maximize the experience.",
+      "We prepped members for conference weekend on what to bring, how to approach the career fair, and how to maximize the experience.",
     highlight: "Game plan • Career fair • What to expect",
     image: "/ConferencePrepMeeting1.jpg",
   },
@@ -146,19 +146,19 @@ const featuredUpdates: FeaturedUpdate[] = [
     category: "Professional Development",
     title: "2025 SHPE National Convention",
     excerpt:
-      "Conference highlights—sessions, networking, and career fair takeaways that helped members grow professionally.",
+      "Conference highlights include sessions, networking, and career fair experiences that supported members professional growth.",
     image: "/shpeconv01.png",
     instagramUrl: "https://www.instagram.com/p/DRfQNmVjxBy/?img_index=1",
     details: [
-      "Prepared for the career fair with strategy, resumes, and pitches",
-      "Networking + workshops to level up professionally",
-      "Takeaways we brought back to strengthen the chapter",
+      "Gained direct access to recruiters offering internships, full time roles, and on the spot interviews",
+      "Connected with industry professionals and alumni who opened doors to career opportunities",
+      "Our Co President Sebastian Rocha addressed over 400+ Region 2 members, sharing SHPE LMU’s vision and strengthening cross campus connections",
     ],
     gallery: [
-      "/conference/1.jpg",
-      "/conference/2.jpg",
-      "/conference/3.jpg",
-      "/conference/4.jpg",
+      "/convmeetup.jpg",
+      "/convdinner.jpg",
+      "/convfri.jpg",
+      "/convapple.jpg",
     ],
   },
 ];
