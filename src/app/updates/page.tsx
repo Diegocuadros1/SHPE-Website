@@ -295,7 +295,7 @@ export default function OurImpact() {
                 </div>
 
                 <h2 className="text-3xl md:text-5xl font-display font-bold text-[#0076A5]">
-                Annual programs that create real momentum   
+                  Annual programs that create real momentum
                 </h2>
 
                 <p className="mt-4 text-slate-600 leading-relaxed">
@@ -348,16 +348,35 @@ export default function OurImpact() {
           </div>
 
           {/* Event cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {/* Mobile: horizontal slider | md+: grid */}
+          <div
+            className="
+              -mx-4 px-4 pl-5 ml-5
+              flex gap-4 overflow-x-auto pb-2
+              snap-x snap-mandatory
+              [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden
+              md:mx-0 md:px-0
+              md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:overflow-visible
+            "
+          >
             {initiatives.map((item) => (
               <article
                 key={item.id}
-                className="group rounded-3xl bg-slate-50/40 border border-slate-200 hover:border-[#0076A5]/30 hover:shadow-lg transition-all duration-300 overflow-hidden"
+                className="
+                  group rounded-3xl bg-slate-50/40 border border-slate-200
+                  hover:border-[#0076A5]/30 hover:shadow-lg transition-all duration-300 overflow-hidden
+
+                  // mobile sizing + snapping
+                  snap-start shrink-0 w-[88%] sm:w-[70%]
+
+                  // desktop sizing (grid controls width)
+                  md:w-auto md:shrink
+                "
               >
                 <div className="p-6">
                   <div className="flex items-center justify-between gap-3 mb-3">
                     <span
-                      className={`inline-flex items-center px-3 py-1 rounded-full border text-xs font-semibold ${getPillClass(
+                      className={`inline-flex items-center px-2 sm:px-3 py-1 rounded-full border text-[10px] sm::text-xs font-semibold ${getPillClass(
                         item.category
                       )}`}
                     >
@@ -368,11 +387,11 @@ export default function OurImpact() {
                     <span className="text-xs text-slate-500">SHPE LMU</span>
                   </div>
 
-                  <h3 className="text-xl font-display font-bold text-[#222222] group-hover:text-[#0076A5] transition-colors">
+                  <h3 className="text-md sm:text-xl font-display font-bold text-[#222222] group-hover:text-[#0076A5] transition-colors">
                     {item.title}
                   </h3>
 
-                  <p className="mt-3 text-sm text-slate-600 leading-relaxed">
+                  <p className="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
                     {item.excerpt}
                   </p>
 
@@ -478,21 +497,31 @@ export default function OurImpact() {
       </section>
 
       {/* MODAL */}
+      {/* MODAL */}
       <Dialog
         open={open}
         onOpenChange={(v: boolean) => (v ? setOpen(true) : closeModal())}
       >
-        <DialogContent className="sm:max-w-[980px] rounded-3xl p-0 overflow-hidden">
+        <DialogContent
+          className="
+            p-0 overflow-hidden
+            w-[calc(100vw-1.25rem)] sm:w-full
+            max-w-[980px]
+            h-[92vh] max-h-[92vh]
+            rounded-3xl
+          "
+        >
           {selected && (
-            <div className="grid md:grid-cols-[1.25fr_1fr]">
-              <div className="relative bg-black">
+            <div className="flex flex-col md:grid md:grid-cols-[1.25fr_1fr] h-full min-h-0">
+              {/* left media */}
+              <div className="relative bg-black h-[170px] sm:h-[300px] md:h-auto">
+                {" "}
                 <img
                   src={activeSrc || selected.image}
                   alt={selected.title}
-                  className="w-full h-[320px] md:h-[520px] object-cover"
+                  className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-
                 <div className="absolute left-5 right-5 bottom-5">
                   <div className="flex flex-wrap items-center gap-2">
                     <span
@@ -500,76 +529,82 @@ export default function OurImpact() {
                         selected.category
                       )}`}
                     >
-                      <Tag size={12} />
+                      <Tag size={10} />
                       {selected.category}
                     </span>
                     <span className="text-white/85 text-sm">
                       {selected.date}
                     </span>
                   </div>
-                  <h3 className="mt-2 text-2xl md:text-3xl font-display font-bold text-white">
+                  <h3 className="mt-2 text-xl sm:text-2xl md:text-3xl font-display font-bold text-white">
                     {selected.title}
                   </h3>
                 </div>
               </div>
 
-              <div className="p-6 md:p-7 bg-white">
+              {/* DETAILS (scrollable on mobile) */}
+              <div className="flex flex-col min-h-0 bg-white p-6 md:p-7">
                 <DialogHeader>
                   <DialogTitle className="sr-only">
                     {selected.title}
                   </DialogTitle>
                 </DialogHeader>
 
-                <p className="text-slate-700 leading-relaxed">
-                  {selected.excerpt}
-                </p>
-
-                {selected.details?.length ? (
-                  <ul className="mt-4 space-y-2 text-slate-700">
-                    {selected.details.map((line, idx) => (
-                      <li key={idx} className="flex gap-2">
-                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#0076A5]" />
-                        <span>{line}</span>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-
-                <div className="mt-6">
-                  <p className="text-xs font-semibold text-slate-500 mb-2">
-                    Photos
+                {/* This is the scroll area */}
+                <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain touch-pan-y [-webkit-overflow-scrolling:touch]">
+                  <p className="text-slate-700 leading-relaxed pr-3 sm:pr-0 text-sm md:text-md">
+                    {selected.excerpt}
                   </p>
 
-                  {combinedGallery.length ? (
-                    <div className="grid grid-cols-4 gap-2">
-                      {combinedGallery.slice(0, 12).map((src, idx) => (
-                        <button
-                          key={src + idx}
-                          type="button"
-                          onClick={() => setActiveSrc(src)}
-                          className={`rounded-xl overflow-hidden border transition ${
-                            (activeSrc || selected.image) === src
-                              ? "border-[#0076A5]"
-                              : "border-slate-200 hover:border-slate-300"
-                          }`}
-                          aria-label={`Open photo ${idx + 1}`}
-                        >
-                          <img
-                            src={src}
-                            alt={`Thumbnail ${idx + 1}`}
-                            className="h-16 w-full object-cover"
-                          />
-                        </button>
+                  {selected.details?.length ? (
+                    <ul className="mt-4 space-y-2 text-slate-700">
+                      {selected.details.map((line, idx) => (
+                        <li key={idx} className="flex gap-2">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-[#0076A5]" />
+                          <span className="text-sm sm:text-md">{line}</span>
+                        </li>
                       ))}
-                    </div>
-                  ) : (
-                    <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-4 text-center text-sm text-slate-600">
-                      No photos yet.
-                    </div>
-                  )}
+                    </ul>
+                  ) : null}
+
+                  <div className="mt-6">
+                    <p className="text-xs font-semibold text-slate-500 mb-2">
+                      Photos
+                    </p>
+
+                    {combinedGallery.length ? (
+                      // Horizontal scroll on phones so thumbnails aren’t tiny
+                      <div className="flex gap-2 overflow-x-auto pb-2">
+                        {combinedGallery.slice(0, 12).map((src, idx) => (
+                          <button
+                            key={src + idx}
+                            type="button"
+                            onClick={() => setActiveSrc(src)}
+                            className={`shrink-0 w-20 rounded-xl overflow-hidden border transition ${
+                              (activeSrc || selected.image) === src
+                                ? "border-[#0076A5]"
+                                : "border-slate-200 hover:border-slate-300"
+                            }`}
+                            aria-label={`Open photo ${idx + 1}`}
+                          >
+                            <img
+                              src={src}
+                              alt={`Thumbnail ${idx + 1}`}
+                              className="h-16 w-full object-cover"
+                            />
+                          </button>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-4 text-center text-sm text-slate-600">
+                        No photos yet.
+                      </div>
+                    )}
+                  </div>
                 </div>
 
-                <div className="mt-6 flex flex-wrap gap-3">
+                {/* Footer buttons always visible */}
+                <div className="pt-2 sm:pt-4 mt-4 border-t border-slate-200 flex flex-wrap gap-3">
                   <Button
                     onClick={closeModal}
                     className="bg-[#0076A5] hover:bg-[#005f85] text-white"
