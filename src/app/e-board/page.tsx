@@ -66,12 +66,12 @@ const leadership = [
     year: "Junior",
     photo:
       "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&h=600&fit=crop&crop=face",
-    funPhoto: "/fun.png",
-    bio: "Focused on building meaningful connections across campus and making SHPE events feel welcoming, organized, and fun.",
-    focus: ["Member engagement", "Collaboration", "Culture"],
-    email: "shpe.lmu@example.com",
-    linkedin: "https://www.linkedin.com",
-    funFact: "Give me a playlist theme and I’ll deliver 🔥",
+    funPhoto: "/natfun.jpg",
+    bio: "I'm a 3rd year Mech student and hope to engage more students in STEM through club activities and outreach. Some of my hobbies are crocheting/ knitting, Baking, & 3D printing.",
+    focus: ["Member outreach", "Collaboration", "Networking"],
+    email: "ngarci47@lion.lmu.edu",
+    linkedin: "https://www.linkedin.com/in/natali-i-g2027/",
+    funFact: "I used to play the French horn.",
   },
   {
     id: "simon",
