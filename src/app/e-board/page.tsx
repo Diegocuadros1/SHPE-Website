@@ -85,21 +85,23 @@ const EBoardPage = () => {
 
       {/* E-BOARD SECTION */}
       <section className="py-20 md:py-28 bg-[#F5F5F5]">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mb-14 text-left">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-2xl bg-[#0076A5] flex items-center justify-center shadow-sm">
-                <Users className="w-6 h-6 text-white" />
+        <div className="container mx-auto px-4 flex flex-col items-center">
+          <div className="w-full flex items-baseline">
+            <div className="max-w-3xl mb-14 text-left">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-[#0076A5] flex items-center justify-center shadow-sm">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
               </div>
+
+              <h2 className="text-3xl md:text-5xl font-display font-bold text-[#0076A5] mb-4">
+                Meet Our <span className="text-[#AB0C2F]">E-Board</span>
+              </h2>
+
+              <p className="text-[#222222]">
+                Click any member to learn more and connect!
+              </p>
             </div>
-
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-[#0076A5] mb-4">
-              Meet Our <span className="text-[#AB0C2F]">E-Board</span>
-            </h2>
-
-            <p className="text-[#222222]">
-              Click any member to learn more and connect!
-            </p>
           </div>
 
           {/* ✅ Mobile swipe row, md+ grid */}
@@ -296,7 +298,7 @@ const EBoardPage = () => {
 
       {/* ADVISORS SECTION */}
       <section className="py-20 md:py-24 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 flex flex-col items-center ">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="mt-5 text-3xl md:text-5xl font-display font-bold text-[#0076A5]">
               Chapter <span className="text-[#AB0C2F]">Advisors</span>
@@ -318,7 +320,7 @@ const EBoardPage = () => {
                       />
                     </div>
 
-                    <div className="mt-5 text-center">
+                    <div className="mt-5 text-center w-full justify-center items-center">
                       <h3 className="text-xl font-display font-bold text-slate-900">
                         {a.name}
                       </h3>
