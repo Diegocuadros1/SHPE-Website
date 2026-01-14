@@ -2,92 +2,8 @@
 
 import { Button } from "@/components/ui/button";
 import { ImageGallery } from "@/components/ImageGallery";
-import {
-  Target,
-  Heart,
-  Lightbulb,
-  GraduationCap,
-  Handshake,
-} from "lucide-react";
-
-/* ---------------- SCRAPBOOK (TOP COLLAGE) ---------------- */
-/* These are ONLY for the scrapbook polaroids */
-const scrapbookImages = [
-  { src: "/LMU2018.png", alt: "2018 SHPE LMU Executive Board" },
-  { src: "/eboard1.png", alt: "2025 SHPE LMU Executive Board" },
-  { src: "/LMU2019.png", alt: "Building community through teamwork" },
-  { src: "/historylmu.jpg", alt: "The beginning of something bigger" },
-];
-
-/* ---------------- BOTTOM GALLERY ---------------- */
-/* These are ONLY for the ImageGallery at the bottom */
-const galleryImages = [
-  {
-    src: "/NASAjpl.png",
-    alt: "Celebration",
-  },
-  {
-    src: "/LAdwp.png",
-    alt: "Collaboration",
-  },
-  {
-    src: "/amazon.png",
-    alt: "Community moment",
-  },
-  {
-    src: "/google.png",
-    alt: "Team photo",
-  },
-  {
-    src: "/northrup.png",
-    alt: "Workshop",
-  },
-  {
-    src: "/blueorigin.png",
-    alt: "Meeting",
-  },
-  {
-    src: "/RandS.png",
-    alt: "Meeting",
-  },
-  {
-    src: "/Raytheon-Logo.png",
-    alt: "Meeting",
-  },
-  {
-    src: "/LLNL.png",
-    alt: "Meeting",
-  },
-];
-
-/* ---------------- VALUES ---------------- */
-
-const values = [
-  {
-    icon: Heart,
-    title: "Familia",
-    description:
-      "We foster a welcoming and supportive community where members uplift one another through shared experiences, mentorship, and belonging.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Innovation",
-    description:
-      "We embrace creativity and forward thinking to solve problems, explore new ideas, and grow as engineers and leaders.",
-  },
-  {
-    icon: GraduationCap,
-    title: "Excellence",
-    description:
-      "We strive for academic, professional, and personal excellence by holding ourselves to high standards and supporting continuous growth.",
-  },
-  {
-    icon: Handshake,
-    title: "Service",
-    description:
-      "We give back to our communities through outreach, mentorship, and service rooted in impact and purpose.",
-  },
-];
+import { Target } from "lucide-react";
+import { scrapbookImages, galleryImages, values } from "@/data/data";
 
 const About = () => {
   return (
@@ -115,41 +31,45 @@ const About = () => {
             About SHPE LMU
           </h1>
           <p className="text-lg text-white/85 max-w-2xl mx-auto">
-Discover how our history, values, and mission come together to empower Hispanic students in STEM
+            Discover how our history, values, and mission come together to
+            empower Hispanic students in STEM
           </p>
         </div>
       </section>
 
-            {/* ================= VALUES ================= */}
-      <section className="pt-12 pb-16 bg-[#F5F5F5]">
-        <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-10">
-            <h2 className="text-3xl md:text-5xl font-display font-bold text-[#0076A5]">
+      {/* ================= VALUES ================= */}
+      <section className="pt-10 sm:pt-12 pb-14 sm:pb-16 bg-[#F5F5F5]">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-[#0076A5]">
               Our <span className="text-[#AB0C2F]">Core Values</span>
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value) => (
-              <div
-                key={value.title}
-                className="p-6 rounded-2xl bg-white border border-[#DDDDDD] hover:shadow-lg transition text-center"
-              >
-                <div className="w-14 h-14 mx-auto rounded-xl bg-[#0076A5]/20 flex items-center justify-center mb-5">
-                  <value.icon className="w-7 h-7 text-[#0076A5]" />
+          {/* Mobile: swipeable row | md+: grid */}
+          <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 -mx-4 px-4 md:mx-0 md:px-0 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {values.map((value) => {
+              const Icon = value.icon;
+              return (
+                <div
+                  key={value.title}
+                  className="shrink-0 md:shrink w-[85%] max-w-[360px] md:w-auto md:max-w-none snap-start p-5 sm:p-6 rounded-2xl bg-white border border-[#DDDDDD] hover:shadow-lg transition text-center"
+                >
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 mx-auto rounded-xl bg-[#0076A5]/20 flex items-center justify-center mb-4 sm:mb-5">
+                    <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-[#0076A5]" />
+                  </div>
+                  <h3 className="text-lg font-display font-bold text-[#0076A5] mb-2">
+                    {value.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    {value.description}
+                  </p>
                 </div>
-                <h3 className="text-lg font-display font-bold text-[#0076A5] mb-2">
-                  {value.title}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {value.description}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
-
 
       {/* ================= SCRAPBOOK HISTORY ================= */}
       <section className="py-16 md:py-20 bg-[#F5F5F5]">
@@ -160,20 +80,17 @@ Discover how our history, values, and mission come together to empower Hispanic 
               {
                 year: "2018",
                 title: "Founded at LMU",
-                text:
-                  "SHPE at Loyola Marymount University was founded in 2018 by students committed to creating a supportive space for Hispanic students pursuing STEM careers.",
+                text: "SHPE at Loyola Marymount University was founded in 2018 by students committed to creating a supportive space for Hispanic students pursuing STEM careers.",
               },
               {
                 year: "2025",
                 title: "A New Chapter",
-                text:
-                  "In 2025, SHPE LMU was revitalized with renewed leadership and a vision centered on growth, service, and meaningful impact.",
+                text: "In 2025, SHPE LMU was revitalized with renewed leadership and a vision centered on growth, service, and meaningful impact.",
               },
               {
                 year: "Today",
                 title: "Still Writing the Story",
-                text:
-                  "Today, SHPE LMU continues to grow as a student-driven organization empowering future generations through leadership, outreach, and collaboration.",
+                text: "Today, SHPE LMU continues to grow as a student-driven organization empowering future generations through leadership, outreach, and collaboration.",
               },
             ].map((item) => (
               <div
@@ -219,8 +136,6 @@ Discover how our history, values, and mission come together to empower Hispanic 
           </div>
         </div>
       </section>
-
-
 
       {/* ================= MISSION ================= */}
       <section className="py-16 md:py-20 bg-[#F5F5F5]">
@@ -289,7 +204,6 @@ Discover how our history, values, and mission come together to empower Hispanic 
         </div>
       </section>
 
-
       {/* ================= PARTNERS & SPEAKERS ================= */}
       <section className="bg-[#0076A5] pt-12 pb-12">
         <div className="container mx-auto px-4 text-center">
@@ -297,12 +211,13 @@ Discover how our history, values, and mission come together to empower Hispanic 
             Industry Partners & Guest Speakers
           </h2>
           <p className="text-white/80 text-sm mb-6">
-Interested in sponsoring SHPE LMU? Your support helps shape the next generation of engineers, innovators, and leaders.          </p>
+            Interested in sponsoring SHPE LMU? Your support helps shape the next
+            generation of engineers, innovators, and leaders.{" "}
+          </p>
 
           <ImageGallery images={galleryImages} />
         </div>
       </section>
-
     </>
   );
 };

@@ -67,7 +67,7 @@ export function Navbar() {
             <div className="text-white font-semibold tracking-tight text-xs md:text-base lg:text-lg truncate">
               Loyola Marymount University
             </div>
-            <div className="mt-1 text-white/70 text-[5px] lg:text-[11px] tracking-[0.22em] uppercase truncate">
+            <div className="mt-1 text-white/70 text-[6px] lg:text-[11px] tracking-[0.22em] uppercase truncate">
               Society of Hispanic Professional Engineers
             </div>
           </div>

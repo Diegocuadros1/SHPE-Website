@@ -9,210 +9,12 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import Image from "next/image";
 
-/** ---------------- Types ---------------- */
+import { Category, categoryStyles, FeaturedUpdate } from "@/lib/helpers";
+import { featuredUpdates, initiatives, tagLegend } from "@/data/data";
 
-type Category =
-  | "Professional Development"
-  | "Social"
-  | "Guest Speakers"
-  | "Outreach"
-  | "General Meeting"
-  | "Conference"
-  | "Region 2";
-
-type Initiative = {
-  id: string;
-  category: Category;
-  title: string;
-  excerpt: string;
-  highlight: string;
-  image?: string;
-  video?: string;
-};
-
-type FeaturedUpdate = {
-  id: string;
-  date: string;
-  category: Category;
-  title: string;
-  excerpt: string;
-  image: string;
-  instagramUrl?: string;
-  details?: string[];
-  gallery?: string[];
-};
-
-type TagLegendItem = {
-  label: string;
-  desc: string;
-  dot: string;
-  chip: string;
-};
-
-/** ---------------- Data ---------------- */
-
-const initiatives: Initiative[] = [
-  {
-    id: "gm1",
-    category: "General Meeting",
-    title: "General Meeting #1",
-    excerpt:
-      "A welcoming introduction to SHPE where students meet the board, learn about upcoming events, and get connected to opportunities that support their growth.",
-    highlight: "Meet the board • Upcoming events • Get involved",
-    video: "/GM1.mp4",
-  },
-  {
-    id: "beach-social",
-    category: "Social",
-    title: "Latinx Beach Social / Bonfire",
-    excerpt:
-      "A community night by the beach to build friendships, celebrate culture, and connect with other students.",
-    highlight: "Community • Culture • Connection",
-    image: "/LatinxBonfire2.jpg",
-  },
-  {
-    id: "resume-workshop",
-    category: "Professional Development",
-    title: "Resume Building Workshop",
-    excerpt:
-      "Hands on resume support and real feedback so members can apply confidently to internships, research roles, and jobs.",
-    highlight: "Resume feedback • Templates • Career prep",
-    image: "/ResumeWorkshop.jpg",
-  },
-  {
-    id: "linkedin-workshop",
-    category: "Professional Development",
-    title: "LinkedIn Workshop",
-    excerpt:
-      "Build a stronger LinkedIn profile, learn networking best practices, and position yourself for opportunities.",
-    highlight: "Profile upgrades • Networking • Recruiter tips",
-    image: "/LinkedlnWorkshop1.jpg",
-  },
-  {
-    id: "lmu-ucla-social",
-    category: "Social",
-    title: "LMU x UCLA Social",
-    excerpt:
-      "A cross-campus social to connect with other SHPE members, share experiences, and build community beyond LMU.",
-    highlight: "Cross-campus • New friends • Familia",
-    image: "/LMUxUCLA.jpg",
-  },
-  {
-    id: "conference-prep",
-    category: "Professional Development",
-    title: "Conference Prep Meeting",
-    excerpt:
-      "We prepped members for conference weekend on what to bring, how to approach the career fair, and how to maximize the experience.",
-    highlight: "Game plan • Career fair • What to expect",
-    image: "/ConferencePrepMeeting1.jpg",
-  },
-  {
-    id: "elevator-pitch",
-    category: "Professional Development",
-    title: "Elevator Pitch Workshop",
-    excerpt:
-      "Practice your pitch, get feedback, and learn how to confidently share your story, interests, and goals in 30 seconds.",
-    highlight: "Confidence • Practice • Feedback",
-    image: "/ElevatorPitchWorkshop1.jpg",
-  },
-];
-
-const featuredUpdates: FeaturedUpdate[] = [
-  {
-    id: "shpegiving",
-    date: "Fall 2025",
-    category: "Social",
-    title: "Region 2 SHPE’sgiving @ LMU",
-    excerpt:
-      "A Region 2 night that brought chapters together for community, culture, and connection across campuses.",
-    image: "/shpesgiving01jpg.png",
-    instagramUrl: "https://www.instagram.com/p/DSX96-8EhCg/",
-    details: [
-      "Connected with Region 2 chapters and met new members across campuses",
-      "Community-focused night celebrating culture and familia",
-      "Welcomed students from UCLA, USC, UCSB, CSULB, CSUF, Pasadena City College, El Camino College, San Diego Mesa College, and Glendale Community College with over 60 to 70 attendees joining from across the region",
-    ],
-    gallery: [
-      "/shpesgiving.jpg",
-      "/shpesgiving2.png",
-      "/shpesgiving3.png",
-      "/shpesgiving4.png",
-    ],
-  },
-  {
-    id: "conference",
-    date: "Fall 2025",
-    category: "Professional Development",
-    title: "2025 SHPE National Convention",
-    excerpt:
-      "Conference highlights include sessions, networking, and career fair experiences that supported members professional growth.",
-    image: "/shpeconv01.png",
-    instagramUrl: "https://www.instagram.com/p/DRfQNmVjxBy/?img_index=1",
-    details: [
-      "Gained direct access to recruiters offering internships, full time roles, and on the spot interviews",
-      "Connected with industry professionals and alumni who opened doors to career opportunities",
-      "Our Co President Sebastian Rocha addressed over 400+ Region 2 members, sharing SHPE LMU’s vision and strengthening cross campus connections",
-    ],
-    gallery: [
-      "/convmeetup.jpg",
-      "/convdinner.jpg",
-      "/convfri.jpg",
-      "/convapple.jpg",
-    ],
-  },
-];
-
-const tagLegend: TagLegendItem[] = [
-  {
-    label: "Professional Development",
-    desc: "Resume Worshops, LinkedIn Workshops, Conference Prep, and much more",
-    dot: "bg-[#0076A5]",
-    chip: "bg-[#0076A5]/10 text-[#0076A5] border-[#0076A5]/20",
-  },
-  {
-    label: "Socials",
-    desc: "Community nights, Mixers, Cross-campus hangs",
-    dot: "bg-emerald-500",
-    chip: "bg-emerald-500/10 text-emerald-700 border-emerald-500/20",
-  },
-  {
-    label: "Guest Speakers",
-    desc: "Panels + talks with alumni & industry",
-    dot: "bg-purple-500",
-    chip: "bg-purple-500/10 text-purple-700 border-purple-500/20",
-  },
-  {
-    label: "Outreach",
-    desc: "STEM service, K to 12 outreach, and community impact",
-    dot: "bg-amber-500",
-    chip: "bg-amber-500/10 text-amber-800 border-amber-500/20",
-  },
-];
-
-const categoryStyles = {
-  "Professional Development": {
-    pill: "bg-[#0076A5]/10 text-[#0076A5] border-[#0076A5]/20",
-  },
-  Social: {
-    pill: "bg-emerald-500/10 text-emerald-700 border-emerald-500/20",
-  },
-  "Guest Speakers": {
-    pill: "bg-purple-500/10 text-purple-700 border-purple-500/20",
-  },
-  Outreach: {
-    pill: "bg-amber-500/10 text-amber-800 border-amber-500/20",
-  },
-  "General Meeting": {
-    pill: "bg-[#0076A5]/10 text-[#0076A5] border-[#0076A5]/20",
-  },
-  Conference: {
-    pill: "bg-[#AB0C2F]/10 text-[#AB0C2F] border-[#AB0C2F]/20",
-  },
-  "Region 2": {
-    pill: "bg-[#AB0C2F]/10 text-[#AB0C2F] border-[#AB0C2F]/20",
-  },
-} satisfies Record<Category, { pill: string }>;
+const instagramHref = "https://instagram.com/shpelmu";
 
 function getPillClass(category: Category): string {
   return (
@@ -244,10 +46,6 @@ export default function OurImpact() {
     setSelected(null);
     setActiveSrc("");
   };
-
-  // ✅ fallback if any featured event doesn’t have a link yet
-  const instagramHref =
-    selected?.instagramUrl || "https://instagram.com/shpelmu";
 
   return (
     <>
@@ -349,29 +147,11 @@ export default function OurImpact() {
 
           {/* Event cards */}
           {/* Mobile: horizontal slider | md+: grid */}
-          <div
-            className="
-              -mx-4 px-4 pl-5 ml-5
-              flex gap-4 overflow-x-auto pb-2
-              snap-x snap-mandatory
-              [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden
-              md:mx-0 md:px-0
-              md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:overflow-visible
-            "
-          >
+          <div className="-mx-4 px-4 pl-5 ml-5 flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:overflow-visible">
             {initiatives.map((item) => (
               <article
                 key={item.id}
-                className="
-                  group rounded-3xl bg-slate-50/40 border border-slate-200
-                  hover:border-[#0076A5]/30 hover:shadow-lg transition-all duration-300 overflow-hidden
-
-                  // mobile sizing + snapping
-                  snap-start shrink-0 w-[88%] sm:w-[70%]
-
-                  // desktop sizing (grid controls width)
-                  md:w-auto md:shrink
-                "
+                className="group rounded-3xl bg-slate-50/40 border border-slate-200 hover:border-[#0076A5]/30 hover:shadow-lg transition-all duration-300 overflow-hidden snap-start shrink-0 w-[88%] sm:w-[70%] md:w-auto md:shrink"
               >
                 <div className="p-6">
                   <div className="flex items-center justify-between gap-3 mb-3">
@@ -414,10 +194,12 @@ export default function OurImpact() {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <img
+                    <Image
                       src={item.image ?? ""}
                       alt={item.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      width={500}
+                      height={500}
                     />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
@@ -457,10 +239,12 @@ export default function OurImpact() {
                   className="w-full text-left"
                 >
                   <div className="relative h-56 overflow-hidden">
-                    <img
+                    <Image
                       src={item.image}
                       alt={item.title}
                       className="w-full h-full object-cover"
+                      width={500}
+                      height={500}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
 
@@ -497,7 +281,6 @@ export default function OurImpact() {
       </section>
 
       {/* MODAL */}
-      {/* MODAL */}
       <Dialog
         open={open}
         onOpenChange={(v: boolean) => (v ? setOpen(true) : closeModal())}
@@ -514,14 +297,18 @@ export default function OurImpact() {
           {selected && (
             <div className="flex flex-col md:grid md:grid-cols-[1.25fr_1fr] h-full min-h-0">
               {/* left media */}
-              <div className="relative bg-black h-[170px] sm:h-[300px] md:h-auto">
-                {" "}
-                <img
+              {/* left media */}
+              <div className="relative bg-black overflow-hidden h-[170px] sm:h-[300px] md:h-full min-h-0">
+                <Image
                   src={activeSrc || selected.image}
                   alt={selected.title}
-                  className="w-full h-full object-cover"
+                  className="absolute inset-0 h-full w-full object-cover object-center"
+                  width={500}
+                  height={500}
                 />
+
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+
                 <div className="absolute left-5 right-5 bottom-5">
                   <div className="flex flex-wrap items-center gap-2">
                     <span
@@ -536,6 +323,7 @@ export default function OurImpact() {
                       {selected.date}
                     </span>
                   </div>
+
                   <h3 className="mt-2 text-xl sm:text-2xl md:text-3xl font-display font-bold text-white">
                     {selected.title}
                   </h3>
@@ -631,7 +419,6 @@ export default function OurImpact() {
           )}
         </DialogContent>
       </Dialog>
-
       {/* CTA */}
       <section className="py-16 md:py-20 bg-[#F5F5F5]">
         <div className="container mx-auto px-4">

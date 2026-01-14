@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { Users, Linkedin, Mail } from "lucide-react";
+import { leadership, advisors } from "@/data/data";
 
 import {
   Dialog,
@@ -10,137 +11,6 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
-
-/* ------------------ E-BOARD DATA ------------------ */
-
-const leadership = [
-  {
-    id: "sebastian",
-    role: "Co-President",
-    name: "Sebastian Rocha",
-    major: "Computer Science",
-    year: "Senior",
-    photo: "/sebastian_headshot.png",
-    funPhoto: "/sebastian_fun_pic.jpg",
-    bio: "Growing up and studying in California has shown me the power of innovation, diversity, and the global impact of the tech industry. This has shaped my passion for empowering Hispanic students in STEM through mentorship and community, while bringing schools together and building meaningful collaboration across campuses. I’m driven to create inclusive spaces where everyone can grow academically, professionally, and personally while staying connected to their culture and purpose.",
-    focus: ["Chapter growth", "Industry partnerships", "Member experience"],
-    email: "seabass63265.sr@gmail.com",
-    linkedin: "https://www.linkedin.com/in/sebastian-rocha1/",
-    funFact: "I am an Ocean Lifeguard for the LA County Fire Department",
-  },
-  {
-    id: "diego",
-    role: "Co-President",
-    name: "Diego Cuadros",
-    major: "Computer Science",
-    year: "Junior",
-    photo:
-      "/dcpropic1.png",
-    funPhoto: "/dcpropic.png",
-    bio: "Passionate about professional development and helping members feel supported from day one—whether it’s resumes, interviews, or finding community.",
-    focus: ["Professional development", "Mentorship", "Workshops"],
-    email: "shpe.lmu@example.com",
-    linkedin: "https://www.linkedin.com",
-    funFact: "Can’t say no to good tacos 🌮",
-  },
-  {
-    id: "isabela-j",
-    role: "Vice President",
-    name: "Isabela Jimenez",
-    major: "Mechanical Engineering",
-    year: "Senior",
-    photo:
-      "/bellafront.jpg",
-    funPhoto: "/bellafun.jpg",
-    bio: "I am a first-generation Latina engineering student passionate about building community and creating opportunities for others. As a leader within SHPE, I saw this club as the perfect space to support and uplift first-generation students while also creating opportunities to network with professionals and industry leaders. Leading this organization allows me to both help younger generations navigate their paths and intentionally build my own professional journey. I enjoy offering guidance to anyone who needs support, and my goal is to create lasting pathways to success through mentorship, community, and connection.",
-    focus: ["Chapter Presence and Outreach", "Member Experience and Community", "Organization and Leadership Development"],
-    email: "isabela9.jimenez9@gmail.com",
-    linkedin: "https://www.linkedin.com/in/isabelajimenez26/",
-    funFact: "I studied abroad in Bonn, Germany",
-  },
-  {
-    id: "natali",
-    role: "Vice President",
-    name: "Natali Garcia",
-    major: "Mechanical Engineering",
-    year: "Junior",
-    photo:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&h=600&fit=crop&crop=face",
-    funPhoto: "/natfun.jpg",
-    bio: "I'm a 3rd year Mech student and hope to engage more students in STEM through club activities and outreach. Some of my hobbies are crocheting/ knitting, Baking, & 3D printing.",
-    focus: ["Member outreach", "Collaboration", "Networking"],
-    email: "ngarci47@lion.lmu.edu",
-    linkedin: "https://www.linkedin.com/in/natali-i-g2027/",
-    funFact: "I used to play the French horn.",
-  },
-  {
-    id: "simon",
-    role: "Treasurer",
-    name: "Simon Hernandez",
-    major: "Computer Engineering",
-    year: "Sophomore",
-    photo:
-      "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&h=600&fit=crop&crop=face",
-    funPhoto: "/simonfun.jpg",
-    bio: " As an international and bicultural student, I have a unique perspective of the world that drives me to want to create change, and SHPE is one of the ways that helps me do that. I’m a very driven person who tries to be efficient and effective in everything I do, whether it’s school, investing, or my work. I’m also a very active person, I love to play sports, but I mainly practice golf, tennis, and soccer.",
-    focus: ["Funding", "Interpersonal Relationships", "Financial Management"],
-    email: " sherna95@lion.lmu.edu",
-    linkedin: "https://www.linkedin.com/in/simonhernandez-ce/",
-    funFact: " I am a scratch golfer ",
-  },
-  {
-    id: "isabel-c",
-    role: "Media/Marketing",
-    name: "Isabela Clemente",
-    major: "Civil Engineering",
-    year: "Senior",
-    photo:
-      "https://images.unsplash.com/photo-1524503033411-f7a2b6b1f2c8?w=600&h=600&fit=crop&crop=face",
-    funPhoto: "/isaclemfunphoto.jpg",
-    bio: "I’m a first-generation Hispanic student majoring in Civil and Environmental Engineering, driven by a passion for sustainability, community impact, and representation in STEM. As a member of SHPE, I’m motivated to help create an inclusive space that empowers students like me to grow professionally, academically, and personally. I’m passionate about using my skills to amplify SHPE’s mission, strengthen outreach, and inspire future Hispanic engineers. My goal is to contribute to a supportive community that uplifts our voices and prepares us to make meaningful change.",
-    focus: ["Community Outreach", " Marketing Coordinator",],
-    email: "isabelachdez03@gmail.com",
-    linkedin: "https://www.linkedin.com",
-    funFact: "I believe in a spiritual reality above our own",
-  },
-  {
-    id: "academic-chair",
-    role: "Academic Chair",
-    name: "Coming Soon",
-    major: "—",
-    year: "—",
-    isPlaceholder: true,
-  },
-  {
-    id: "secretary",
-    role: "Secretary",
-    name: "Coming Soon",
-    major: "—",
-    year: "—",
-    isPlaceholder: true,
-  },
-];
-
-/* ------------------ ADVISORS DATA ------------------ */
-
-const advisors = [
-  {
-    id: "advisor-1",
-    name: "Melodie Aubinelliott",
-    title: "Senior Administrative Coordinator",
-    email: "melodie.aubinelliott@lmu.edu",
-    photo: "/Aubinelliott_Melodie2.png",
-  },
-  {
-    id: "advisor-2",
-    name: "Gustavo Vejarano",
-    title: "Faculty Advisor",
-    email: "Gustavo.Vejarano@lmu.edu",
-    photo: "/gustavo.png",
-  },
-];
-
-/* ------------------ HELPERS ------------------ */
 
 function initials(name = "") {
   const parts = name.trim().split(" ").filter(Boolean);
@@ -166,10 +36,14 @@ function RoleBadge({ role }: { role: string }) {
   );
 }
 
-/* ------------------ PAGE ------------------ */
+const H_SCROLL =
+  "flex md:grid gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 -mx-4 px-4 md:mx-0 md:px-0 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden";
+
+const H_ITEM =
+  "shrink-0 md:shrink-100 w-[85%] max-w-[380px] md:w-auto md:max-w-none snap-start";
 
 const EBoardPage = () => {
-  const [selectedId, setSelectedId] = useState(null);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   const selectedMember = useMemo(
     () => leadership.find((m) => m.id === selectedId) || null,
@@ -224,75 +98,79 @@ const EBoardPage = () => {
             </h2>
 
             <p className="text-[#222222]">
-              Click any
-              member to learn more and connect!
+              Click any member to learn more and connect!
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          {/* ✅ Mobile swipe row, md+ grid */}
+          <div
+            className={`${H_SCROLL} md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto`}
+          >
             {leadership.map((member) => {
               const disabled = !!member.isPlaceholder;
 
               return (
-                <button
-                  key={member.id}
-                  type="button"
-                  onClick={() => openMember(member)}
-                  className={[
-                    "text-left rounded-3xl border border-slate-200 bg-slate-50/40 overflow-hidden shadow-sm",
-                    "transition-all duration-300",
-                    disabled
-                      ? "opacity-70 cursor-not-allowed"
-                      : "hover:shadow-md hover:-translate-y-1 hover:border-[#0076A5]/30",
-                  ].join(" ")}
-                  aria-label={
-                    disabled
-                      ? `${member.role} is coming soon`
-                      : `Open profile for ${member.name}`
-                  }
-                >
-                  <div className="p-6 sm:p-8">
-                    <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl border border-slate-200 bg-white">
-                      {member.photo ? (
-                        <img
-                          src={member.photo}
-                          alt={`${member.name} headshot`}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-[#0076A5]/10 text-[#0076A5] text-4xl font-bold">
-                          {initials(member.name)}
-                        </div>
-                      )}
-                    </div>
-
-                    <div className="mt-6 text-center">
-                      <div className="flex items-center justify-center gap-2 flex-wrap">
-                        <h3 className="text-2xl font-display font-bold text-slate-900">
-                          {member.name}
-                        </h3>
-                        <RoleBadge role={member.role} />
+                <div key={member.id} className={H_ITEM}>
+                  <button
+                    type="button"
+                    onClick={() => openMember(member)}
+                    className={[
+                      "w-full text-left rounded-3xl border border-slate-200 bg-slate-50/40 overflow-hidden shadow-sm",
+                      "transition-all duration-300",
+                      disabled
+                        ? "opacity-70 cursor-not-allowed"
+                        : "hover:shadow-md hover:-translate-y-1 hover:border-[#0076A5]/30",
+                    ].join(" ")}
+                    aria-label={
+                      disabled
+                        ? `${member.role} is coming soon`
+                        : `Open profile for ${member.name}`
+                    }
+                  >
+                    <div className="p-6 sm:p-8">
+                      <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl border border-slate-200 bg-white">
+                        {member.photo ? (
+                          <img
+                            src={member.photo}
+                            alt={`${member.name} headshot`}
+                            className="w-full h-full object-cover"
+                            loading="lazy"
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center bg-[#0076A5]/10 text-[#0076A5] text-4xl font-bold">
+                            {initials(member.name)}
+                          </div>
+                        )}
                       </div>
 
-                      <p className="mt-1 text-base font-semibold text-slate-700">
-                        {member.major}
-                      </p>
-                      <p className="text-sm text-slate-600">{member.year}</p>
+                      <div className="mt-6 text-center">
+                        <div className="flex items-center justify-center gap-2 flex-wrap">
+                          <h3 className="text-2xl font-display font-bold text-slate-900">
+                            {member.name}
+                          </h3>
+                          <RoleBadge role={member.role} />
+                        </div>
 
-                      {!disabled && member.bio && (
-                        <p className="mt-3 text-sm text-slate-600 line-clamp-3">
-                          {member.bio}
+                        <p className="mt-1 text-base font-semibold text-slate-700">
+                          {member.major}
                         </p>
-                      )}
+                        <p className="text-sm text-slate-600">{member.year}</p>
 
-                      {!disabled && (
-                        <p className="mt-4 text-xs text-slate-500">
-                          Click to view profile →
-                        </p>
-                      )}
+                        {!disabled && member.bio && (
+                          <p className="mt-3 text-sm text-slate-600 line-clamp-3">
+                            {member.bio}
+                          </p>
+                        )}
+
+                        {!disabled && (
+                          <p className="mt-4 text-xs text-slate-500">
+                            Click to view profile →
+                          </p>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </button>
+                  </button>
+                </div>
               );
             })}
           </div>
@@ -349,7 +227,7 @@ const EBoardPage = () => {
                             Focus Areas
                           </h4>
                           <div className="mt-2 flex flex-wrap gap-2">
-                            {focus.map((tag) => (
+                            {focus.map((tag: string) => (
                               <span
                                 key={tag}
                                 className="text-xs px-3 py-1 rounded-full border border-slate-200 bg-slate-50 text-slate-700"
@@ -425,37 +303,38 @@ const EBoardPage = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          {/* ✅ Mobile swipe row, md+ grid */}
+          <div className={`${H_SCROLL} md:grid-cols-2 max-w-4xl mx-auto`}>
             {advisors.map((a) => (
-              <div
-                key={a.id}
-                className="rounded-3xl border border-slate-200 bg-slate-50/40 overflow-hidden shadow-sm"
-              >
-                <div className="p-5 sm:p-6">
-                  <div className="aspect-[4/3] w-full max-w-[340px] mx-auto overflow-hidden rounded-xl border border-slate-200 bg-white">
-                    <img
-                      src={a.photo}
-                      alt={`${a.name} headshot`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+              <div key={a.id} className={H_ITEM}>
+                <div className="rounded-3xl border border-slate-200 bg-slate-50/40 overflow-hidden shadow-sm h-full">
+                  <div className="p-5 sm:p-6">
+                    <div className="aspect-[4/3] w-full max-w-[340px] mx-auto overflow-hidden rounded-xl border border-slate-200 bg-white">
+                      <img
+                        src={a.photo}
+                        alt={`${a.name} headshot`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
 
-                  <div className="mt-5 text-center">
-                    <h3 className="text-xl font-display font-bold text-slate-900">
-                      {a.name}
-                    </h3>
-                    <p className="mt-1 text-sm font-semibold text-slate-700">
-                      {a.title}
-                    </p>
+                    <div className="mt-5 text-center">
+                      <h3 className="text-xl font-display font-bold text-slate-900">
+                        {a.name}
+                      </h3>
+                      <p className="mt-1 text-sm font-semibold text-slate-700">
+                        {a.title}
+                      </p>
 
-                    <div className="mt-2 flex items-center justify-center gap-2 text-slate-500 text-sm">
-                      <Mail className="w-4 h-4" />
-                      <a
-                        href={`mailto:${a.email}`}
-                        className="text-sm text-slate-600 hover:text-slate-900 transition break-all"
-                      >
-                        {a.email}
-                      </a>
+                      <div className="mt-2 flex items-center justify-center gap-2 text-slate-500 text-sm">
+                        <Mail className="w-4 h-4" />
+                        <a
+                          href={`mailto:${a.email}`}
+                          className="text-sm text-slate-600 hover:text-slate-900 transition break-all"
+                        >
+                          {a.email}
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
