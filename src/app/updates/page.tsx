@@ -13,6 +13,7 @@ import Image from "next/image";
 
 import { Category, categoryStyles, FeaturedUpdate } from "@/lib/helpers";
 import { featuredUpdates, initiatives, tagLegend } from "@/data/data";
+import Link from "next/link";
 
 const instagramHref = "https://instagram.com/shpelmu";
 
@@ -454,7 +455,7 @@ export default function OurImpact() {
                 className="border-[#0076A5] text-[#0076A5] hover:bg-[#0076A5]/10"
                 asChild
               >
-                <a href="mailto:shpe@lmu.edu">Contact Us</a>
+                <Link href="/contact">Contact Us</Link>
               </Button>
             </div>
           </div>

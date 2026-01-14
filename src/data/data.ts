@@ -194,7 +194,7 @@ export const leadership = [
     major: "Computer Engineering",
     year: "Sophomore",
     photo:
-      "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&h=600&fit=crop&crop=face",
+      "simon.png",
     funPhoto: "/simonfun.jpg",
     bio: " As an international and bicultural student, I have a unique perspective of the world that drives me to want to create change, and SHPE is one of the ways that helps me do that. I’m a very driven person who tries to be efficient and effective in everything I do, whether it’s school, investing, or my work. I’m also a very active person, I love to play sports, but I mainly practice golf, tennis, and soccer.",
     focus: ["Funding", "Interpersonal Relationships", "Financial Management"],
@@ -209,7 +209,7 @@ export const leadership = [
     major: "Civil Engineering",
     year: "Senior",
     photo:
-      "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&h=600&fit=crop&crop=face",
+      "/isa.png",
     funPhoto: "/isaclemfunphoto.jpg",
     bio: "I’m a first-generation Hispanic student majoring in Civil and Environmental Engineering, driven by a passion for sustainability, community impact, and representation in STEM. As a member of SHPE, I’m motivated to help create an inclusive space that empowers students like me to grow professionally, academically, and personally. I’m passionate about using my skills to amplify SHPE’s mission, strengthen outreach, and inspire future Hispanic engineers. My goal is to contribute to a supportive community that uplifts our voices and prepares us to make meaningful change.",
     focus: ["Community Outreach", " Marketing Coordinator"],

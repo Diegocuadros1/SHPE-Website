@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     siteName: "SHPE LMU",
     images: [
       {
-        url: "shpe1.jpg",
+        url: "SHPE1.jpg",
         width: 800,
         height: 600,
         alt: "SHPE LMU",
