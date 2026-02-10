@@ -2,7 +2,7 @@
 
 A high-performance, fully responsive web application built for the **Society of Hispanic Professional Engineers (SHPE)** chapter at **Loyola Marymount University**. This platform serves as the digital hub for one of LMU's fastest-growing student organizations, empowering Hispanic students in STEM through community, professional development, and leadership.
 
-> **Live Site:** Deployed on Vercel with CI/CD pipeline
+> **[Live Site:](https://shpelmu.org) &nbsp;&middot;&nbsp;** Deployed on Vercel with CI/CD pipeline shpelmu.org
 
 ---
 
