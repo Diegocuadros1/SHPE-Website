@@ -209,7 +209,7 @@ export default function Page() {
 
           <div>
             <h3 className="mb-5 sm:mb-6 text-xl sm:text-2xl font-bold text-[#0076A5]">
-              Upcoming Events
+              View Calendar for Upcoming Events
             </h3>
 
             <div className="space-y-3 sm:space-y-4">
