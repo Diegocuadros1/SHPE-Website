@@ -197,7 +197,7 @@ const Contact = () => {
                         href="mailto:shpe@lmu.edu"
                         className="text-[#0076A5] hover:underline break-all"
                       >
-                        shpelmu@gmail.com
+                        shpe.lmu@gmail.com
                       </a>
                     </div>
                   </div>
