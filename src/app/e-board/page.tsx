@@ -111,7 +111,7 @@ const EBoardPage = () => {
 
           {/* ✅ Mobile swipe row, md+ grid */}
           <div
-            className={`${H_SCROLL} md:grid-cols-2 lg:grid-cols-4 max-w-4xl mx-auto`}
+            className={`${H_SCROLL} md:grid-cols-2 lg:grid-cols-4 max-w-xl md:max-w-6xl mx-auto`}
           >
             {leadership.map((member) => {
               const disabled = !!member.isPlaceholder;
@@ -180,6 +180,8 @@ const EBoardPage = () => {
                 </div>
               );
             })}
+            <div aria-hidden className="shrink-0 w-56 md:w-0" />
+
           </div>
 
           <Dialog
@@ -308,12 +310,6 @@ const EBoardPage = () => {
         <div className="container mx-auto px-4 flex flex-col items-center">
           <div className="w-full flex items-baseline">
             <div className="max-w-3xl mb-14 text-left">
-              <div className="flex items-center gap-3 mb-6">
-                {/* <div className="w-12 h-12 rounded-2xl bg-[#0076A5] flex items-center justify-center shadow-sm">
-                  <Users className="w-6 h-6 text-white" />
-                </div> */}
-              </div>
-
               <h2 className="text-3xl md:text-5xl font-display font-bold text-[#0076A5] mb-4">
                 Meet Our <span className="text-[#AB0C2F]">Interns</span>
               </h2>
@@ -326,7 +322,7 @@ const EBoardPage = () => {
 
           {/* ✅ Mobile swipe row, md+ grid */}
           <div
-            className={`${H_SCROLL} md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto`}
+            className={`${H_SCROLL} md:grid-cols-2 lg:grid-cols-4 max-w-xl md:max-w-6xl mx-auto`}
           >
             {interns.map((member) => {
               const disabled = !!member.isPlaceholder;
@@ -395,6 +391,9 @@ const EBoardPage = () => {
                 </div>
               );
             })}
+
+            <div aria-hidden className="shrink-0 w-56 md:w-0" />
+
           </div>
 
           <Dialog
