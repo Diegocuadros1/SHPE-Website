@@ -37,10 +37,10 @@ function RoleBadge({ role }: { role: string }) {
 }
 
 const H_SCROLL =
-  "flex md:grid gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 -mx-4 px-4 md:mx-0 md:px-0 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden";
+  "flex md:grid gap-6 overflow-x-auto md:overflow-visible snap-x snap-proximity pb-4 -mx-4 px-4 md:mx-0 md:px-0 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden";
 
 const H_ITEM =
-  "shrink-0 md:shrink-100 w-[85%] max-w-[380px] md:w-auto md:max-w-none snap-start";
+  "shrink-0 md:shrink-100 w-[85%] max-w-[320px] md:w-auto md:max-w-none snap-start";
 
 const EBoardPage = () => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -89,7 +89,7 @@ const EBoardPage = () => {
       </section>
 
       {/* E-BOARD SECTION */}
-      <section className="py-20 md:py-28 bg-[#F5F5F5]">
+      <section className="py-20 md:py-28 bg-[#F5F5F5] overflow-x-hidden">
         <div className="container mx-auto px-4 flex flex-col items-center">
           <div className="w-full flex items-baseline">
             <div className="max-w-3xl mb-14 text-left">
@@ -111,7 +111,7 @@ const EBoardPage = () => {
 
           {/* ✅ Mobile swipe row, md+ grid */}
           <div
-            className={`${H_SCROLL} md:grid-cols-2 lg:grid-cols-4 max-w-6xl mx-auto`}
+            className={`${H_SCROLL} md:grid-cols-2 lg:grid-cols-4 max-w-4xl mx-auto`}
           >
             {leadership.map((member) => {
               const disabled = !!member.isPlaceholder;
@@ -304,7 +304,7 @@ const EBoardPage = () => {
       <div className="w-full h-[1px] bg-slate-200"/>
 
       {/* INTERNS SECTION */}
-      <section className="py-20 md:py-28 bg-[#F5F5F5]">
+      <section className="py-20 md:py-28 bg-[#F5F5F5] overflow-x-hidden">
         <div className="container mx-auto px-4 flex flex-col items-center">
           <div className="w-full flex items-baseline">
             <div className="max-w-3xl mb-14 text-left">
@@ -499,7 +499,7 @@ const EBoardPage = () => {
       </section>
 
       {/* ADVISORS SECTION */}
-      <section className="py-20 md:py-24 bg-white">
+      <section className="py-20 md:py-24 bg-white overflow-x-hidden">
         <div className="container mx-auto px-4 flex flex-col items-center ">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="mt-5 text-3xl md:text-5xl font-display font-bold text-[#0076A5]">
