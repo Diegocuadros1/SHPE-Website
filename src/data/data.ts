@@ -316,7 +316,7 @@ export const interns = [
     photo: "/haley.png",
     funPhoto: "/haleyfunphoto.png",
     bio: "I am a Sophomore Mechanical Engineering student at LMU who believes in using engineering and leadership to create a meaningful impact on the community around me. I am committed to mentorship, collaboration, and creating inclusive spaces within STEM. Growing up in Los Angeles, I am passionate about giving back to my community and expanding access to STEM opportunities.",
-    email: "vherna39@lion.lmu.edu",
+    email: "hvelasc2@lion.lmu.edu",
     linkedin: "https://www.linkedin.com/in/haleyavelasco ",
     funFact: "I like to do Hot Yoga and Pilates in my free time.",
     isPlaceholder: false,
