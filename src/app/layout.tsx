@@ -14,7 +14,22 @@ const publicSans = Public_Sans({
 
 export const metadata: Metadata = {
   title: "SHPE LMU",
-  description: "SHPE LMU website",
+  description: "Society of Hispanic Engineers LMU",
+  openGraph: {
+    title: "SHPE LMU",
+    description: "Society of Hispanic Engineers LMU",
+    url: "https://shpelmu.org/",
+    siteName: "SHPE LMU",
+    images: [
+      {
+        url: "SHPE1.jpg",
+        width: 800,
+        height: 600,
+        alt: "SHPE LMU",
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({

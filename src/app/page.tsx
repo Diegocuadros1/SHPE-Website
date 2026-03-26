@@ -1,59 +1,10 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import {
-  ArrowRight,
-  Users,
-  BookOpen,
-  Briefcase,
-  ChevronRight,
-  Play,
-  Pause,
-} from "lucide-react";
+import { ArrowRight, ChevronRight, Play, Pause } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-
-/* ------------------ DATA ------------------ */
-
-const statistics = [
-  {
-    number: "#6",
-    description: "Private University in California",
-    additionalInfo: "U.S. News & World Report, 2026",
-  },
-  {
-    number: "#21",
-    description: "Best Undergraduate Engineering Program",
-    additionalInfo: "U.S. News & World Report, 2026",
-  },
-];
-
-const pillars = [
-  {
-    icon: Users,
-    title: "Community",
-    description:
-      "Build lasting connections with fellow Hispanic engineers who share your journey. SHPE offers a strong, supportive network where members can connect, collaborate, and build long-term relationships. From professional networking to lifelong friendships, SHPE's community empowers you to thrive",
-  },
-  {
-    icon: BookOpen,
-    title: "Academics",
-    description:
-      "Our academic resources are designed to help you excel in your courses and beyond. Whether you need tutoring, mentorship, or resources for studying STEM subjects, SHPE provides the support to ensure you reach your academic goals",
-  },
-  {
-    icon: Briefcase,
-    title: "Professional Development",
-    description:
-      "Workshops, networking, and career prep to launch your engineering career. SHPE hosts events, workshops, and networking opportunities designed to enhance your professional skills and connect you with industry leaders. Get the guidance and resources you need to launch your career and succeed in the competitive STEM field",
-  },
-];
-
-const upcomingEvents = [
-  { date: "Jan 29", title: "Welcome Back Meeting", time: "6:00 – 7:00 PM" },
-  { date: "TBD", title: "Guest Speaker", time: "6:00 – 7:00 PM" },
-  { date: "TBD", title: "Social Event", time: "6:00 – 7:30 PM" },
-];
+import { statistics, pillars, upcomingEvents } from "@/data/data";
 
 /* ------------------ PAGE ------------------ */
 
@@ -258,7 +209,7 @@ export default function Page() {
 
           <div>
             <h3 className="mb-5 sm:mb-6 text-xl sm:text-2xl font-bold text-[#0076A5]">
-              Upcoming Events
+              View Calendar for Upcoming Events
             </h3>
 
             <div className="space-y-3 sm:space-y-4">
@@ -311,18 +262,21 @@ export default function Page() {
 
           {/* stack on mobile */}
           <div className="mx-auto flex max-w-md flex-col gap-3 sm:max-w-none sm:flex-row sm:justify-center sm:gap-4">
-
             <Button
               variant="hero"
               size="lg"
               asChild
               className="w-full sm:w-auto"
             >
-              <a href="https://leo.lmu.edu/organization/society-of-hispanic-professional-engineers" target="_blank" rel="noreferrer">
+              <a
+                href="https://leo.lmu.edu/organization/society-of-hispanic-professional-engineers"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Join SHPE @ LMU
               </a>
             </Button>
-            
+
             <Button
               variant="heroOutline"
               size="lg"
