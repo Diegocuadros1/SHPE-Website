@@ -1,7 +1,6 @@
 "use client";
 
 import React, { forwardRef } from "react";
-// @ts-expect-error react-pageflip has no bundled types for React 19
 import HTMLFlipBook from "react-pageflip";
 
 export type Achievement = {
