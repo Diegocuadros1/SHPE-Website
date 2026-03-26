@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Calendar, Tag, Megaphone } from "lucide-react";
+import { Calendar, Tag, Megaphone, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -12,7 +12,7 @@ import {
 import Image from "next/image";
 
 import { Category, categoryStyles, FeaturedUpdate } from "@/lib/helpers";
-import { featuredUpdates, initiatives, tagLegend } from "@/data/data";
+import { featuredUpdates, initiatives, tagLegend, achievements } from "@/data/data";
 import Link from "next/link";
 
 const instagramHref = "https://instagram.com/shpelmu";
@@ -25,6 +25,13 @@ function getPillClass(category: Category): string {
 }
 
 export default function OurImpact() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (dir: "left" | "right") => {
+    if (!scrollRef.current) return;
+    scrollRef.current.scrollBy({ left: dir === "left" ? -340 : 340, behavior: "smooth" });
+  };
+
   const [open, setOpen] = useState<boolean>(false);
   const [selected, setSelected] = useState<FeaturedUpdate | null>(null);
   const [activeSrc, setActiveSrc] = useState<string>("");
@@ -203,7 +210,7 @@ export default function OurImpact() {
                       height={500}
                     />
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
                 </div>
               </article>
             ))}
@@ -247,7 +254,7 @@ export default function OurImpact() {
                       width={500}
                       height={500}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent" />
 
                     <div className="absolute bottom-4 left-4">
                       <span
@@ -308,7 +315,7 @@ export default function OurImpact() {
                   height={500}
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-transparent" />
 
                 <div className="absolute left-5 right-5 bottom-5">
                   <div className="flex flex-wrap items-center gap-2">
@@ -420,6 +427,74 @@ export default function OurImpact() {
           )}
         </DialogContent>
       </Dialog>
+      {/* ACHIEVEMENTS */}
+      <section className="py-16 md:py-20 bg-white overflow-hidden">
+        <div className="container mx-auto px-4">
+          {/* Header + arrows */}
+          <div className="flex items-end justify-between mb-8 max-w-6xl mx-auto">
+            <div>
+              <p className="text-sm font-semibold text-[#AB0C2F] uppercase tracking-wider mb-2">
+                Highlights
+              </p>
+              <h2 className="text-3xl md:text-5xl font-display font-bold text-[#222222]">
+                Achievements
+              </h2>
+            </div>
+            <div className="flex gap-2 shrink-0">
+              <button
+                onClick={() => scroll("left")}
+                className="w-10 h-10 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center transition"
+                aria-label="Scroll left"
+              >
+                <ChevronLeft className="w-5 h-5 text-slate-600" />
+              </button>
+              <button
+                onClick={() => scroll("right")}
+                className="w-10 h-10 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center transition"
+                aria-label="Scroll right"
+              >
+                <ChevronRight className="w-5 h-5 text-slate-600" />
+              </button>
+            </div>
+          </div>
+
+          {/* Scrollable cards */}
+          <div
+            ref={scrollRef}
+            className="-mx-4 px-4 flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          >
+            {achievements.map((item) => (
+              <article
+                key={item.id}
+                className="snap-start shrink-0 w-[92vw] sm:w-170 overflow-hidden flex flex-col border border-slate-200"
+                style={{ height: "500px" }}
+              >
+                {/* Top — text block */}
+                <div className="bg-white px-7 py-6 flex flex-col" style={{ height: "38%" }}>
+                  <h3 className="text-[#111111] font-display font-black text-2xl leading-tight tracking-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-slate-700 text-sm leading-relaxed mt-2 border-t border-slate-100 pt-2">
+                    {item.description}
+                  </p>
+                </div>
+
+                {/* Bottom — photo */}
+                <div className="relative flex-1 overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={500}
+                    height={400}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 md:py-20 bg-[#F5F5F5]">
         <div className="container mx-auto px-4">

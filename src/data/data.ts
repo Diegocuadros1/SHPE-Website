@@ -432,6 +432,78 @@ export const initiatives: Initiative[] = [
     highlight: "Confidence • Practice • Feedback",
     image: "/ElevatorPitchWorkshop1.jpg",
   },
+  {
+    id: "gm2",
+    category: "General Meeting",
+    title: "Welcome Back Meeting — GM #2",
+    excerpt:
+      "Our second general meeting welcomed members back, recapped fall highlights, and previewed the exciting events ahead for the spring semester.",
+    highlight: "Spring kickoff • Updates • What's next",
+    image: "/welcomeback.png",
+  },
+  {
+    id: "blue-origin-northrup",
+    category: "Guest Speakers",
+    title: "Blue Origin + Northrop Grumman Guest Speakers",
+    excerpt:
+      "LMU Engineers from Blue Origin and Northrop Grumman joined us to share their career journeys, talk about life in aerospace and defense, and answer questions from our members.",
+    highlight: "Aerospace • Defense • Career paths",
+    image: "/blue+northrup.jpg",
+  },
+  {
+    id: "kickback-pool",
+    category: "Social",
+    title: "Kickback & Pool Party",
+    excerpt:
+      "A laid-back kickback to get closer at the start of the semester, connect with the SHPE familia, and just vibe together.",
+    highlight: "Vibes • Familia • Summer fun",
+    image: "/kickback2026.jpg",
+  },
+  {
+    id: "class-to-internship",
+    category: "Professional Development",
+    title: "From Class to Internship",
+    excerpt:
+"Where members shared how they got their roles, the process they went through, and what they do at their internships.",
+    highlight: "Internship tips • Resume • Real talk",
+    image: "/classtointernship.jpg",
+  },
+    {
+    id: "dia-de-ciencias",
+    category: "Outreach",
+    title: "Día de Ciencias",
+    excerpt:
+      "A STEM outreach event celebrating science and inspiring the next generation of young engineers and scientists through hands-on activities and mentorship.",
+    highlight: "STEM outreach • K–12 • Inspire",
+    image: "/outreach1.jpg",
+  },
+  {
+    id: "learn-research",
+    category: "Professional Development",
+    title: "Learning About Research",
+    excerpt:
+      "A session dedicated to demystifying undergraduate research — how to find opportunities, reach out to professors, and get involved in meaningful projects at LMU and beyond.",
+    highlight: "Research • Professors • Opportunities",
+    image: "/research.jpg",
+  },
+  {
+    id: "google-speakers",
+    category: "Guest Speakers",
+    title: "Google Guest Speakers",
+    excerpt:
+      "Google engineers visited to share their experiences working at one of the world's leading tech companies, offering advice on breaking into big tech.",
+    highlight: "Big tech • Career advice • Google life",
+    image: "/googleguest.jpg",
+  },
+  {
+    id: "engineering-bonfire",
+    category: "Social",
+    title: "LMU Engineering Bonfire",
+    excerpt:
+      "A bonfire night bringing together engineering students from across LMU to relax, connect, and build community outside the classroom.",
+    highlight: "Engineering community • Bonfire • Connection",
+    image: "/lmubonfire.jpg",
+  },
 ];
 
 export const featuredUpdates: FeaturedUpdate[] = [
@@ -478,6 +550,42 @@ export const featuredUpdates: FeaturedUpdate[] = [
       "/convapple.jpg",
     ],
     pill: "bg-emerald-500/10 text-emerald-700 border-emerald-500/20",
+  },
+];
+
+export const achievements = [
+  {
+    id: "hackathon",
+    label: "Tech",
+    title: "2nd Place — Tech Startup Hackathon 2024",
+    description:
+      "Sebastian Rocha (26') and Joanna Estrada (25') earned 2nd Place at Techstars Startup Weekend for their startup, AceTest.AI. In 54 hours, they pitched their idea, formed a team, and built a working prototype while receiving mentorship from experienced entrepreneurs. They presented their final product at Demo Day, where their execution and teamwork set them apart.",
+    image: "/acetestpic.png", // replace with your hackathon photo
+  },
+  {
+    id: "best-bootcamp",
+    label: "Academic",
+    title: "1st Place - BEST Bootcamp 2026",
+    description:
+      "Marcia Aguirre Castro (26') earned 1st Place at the BEST Bootcamp, a one-week program focused on innovation and entrepreneurship. She collaborated with her team to develop a tech-based business solution and present it in the final competition. Her strong execution and presentation led her to secure the top prize..",
+    image: "/bestbootcamp3.png",
+  },
+
+  {
+    id: "LMU Hacks",
+    label: "Professional Development",
+    title: "1st Place - LMU Hacks 2026",
+    description:
+      "Sebastian Rocha (26'), Diego Cuartos (26'), and Jesus Lopez (27') built CareCompanion, an AI-powered hospital patient assistant, at LMU Hacks 2026. Using Next.js and OpenAI, the platform enables patients to interact with their care team while allowing nurses to monitor chats and manage alerts in real time. The system includes clinical guardrails that escalate urgent messages to staff.",
+    image: "/LMUhacks2026.jpg",
+  },
+    {
+    id: "2nd LMU Datathon 2026",
+    label: "Leadership",
+    title: "2nd Place - LMU Datathon 2026",
+    description:
+      "Marcia Aguirre Castro (’26) participated in the LMU Datathon, a hands-on competition where students work in teams to solve real-world business and data challenges. Participants analyze datasets, build models, and present their insights to industry professionals. The event emphasizes collaboration, technical skills, and data-driven decision making, with top teams earning recognition and awards.",
+    image: "/bestbootcamp2.png",
   },
 ];
 
