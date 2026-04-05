@@ -414,7 +414,7 @@ export default function OurImpact() {
                     asChild
                   >
                     <a
-                      href={instagramHref}
+                      href={selected?.instagramUrl ?? instagramHref}
                       target="_blank"
                       rel="noopener noreferrer"
                     >

@@ -507,6 +507,51 @@ export const initiatives: Initiative[] = [
 ];
 
 export const featuredUpdates: FeaturedUpdate[] = [
+
+  {
+    id: "president-visit",
+    date: "Spring 2026",
+    category: "General Meeting",
+    title: "LMU President Visits SHPE",
+    excerpt:
+      "LMU's university president stopped by our  meeting to connect with members, hear about our chapter's work, and show support for SHPE at LMU.",
+    image: "/Tpoon5.jpg",
+    instagramUrl: "https://www.instagram.com/p/DWcQi4EEnql/?hl=en&img_index=1",
+    details: [
+      "LMU's university president attended our  meeting and engaged directly with SHPE members",
+      "Heard about the chapter's growth, events, and impact on the LMU engineering community",
+      "A meaningful moment of recognition that highlighted the importance of Hispanic representation in STEM",
+    ],
+    gallery: [
+      "/Tpoon0.jpg",
+      "/TPoon2.jpg",
+      "/TPoon6.jpg",
+      "/TPoon7.jpg",
+    ],
+    pill: "bg-amber-500/10 text-amber-800 border-amber-500/20",
+  },
+    {
+    id: "cordoba-ceo",
+    date: "Spring 2026",
+    category: "Guest Speakers",
+    title: "Cordoba Corporation CEO Visits SHPE",
+    excerpt:
+      "CEO George L. Pla visited SHPE LMU and spoke directly with members about his journey, leadership experience, and what it takes to lead one of California's most impactful engineering firms.",
+    image: "/CEO.png",
+    instagramUrl: "https://www.instagram.com/p/DWwb1rVFN8Z/?hl=en&img_index=4",
+    details: [
+      "Shared insights on leading Cordoba Corporation and managing large-scale infrastructure projects across California",
+      "Offered advice on career growth, leadership, and making an impact in engineering and beyond",
+      "A meaningful opportunity for members to learn from a nationally recognized leader in the industry",
+    ],
+    gallery: [
+      "/CEO3.png",
+      "/CEO4.png",
+      "/CEO1.png",
+      "/CEO6.png",
+    ],
+    pill: "bg-purple-500/10 text-purple-700 border-purple-500/20",
+  },
   {
     id: "shpegiving",
     date: "Fall 2025",
