@@ -155,7 +155,7 @@ export default function OurImpact() {
 
           {/* Event cards */}
           {/* Mobile: horizontal slider | md+: grid */}
-          <div className="-mx-4 px-4 pl-5 ml-5 flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:overflow-visible">
+          <div className="-mx-4 px-4 flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:overflow-visible">
             {initiatives.map((item) => (
               <article
                 key={item.id}
@@ -270,7 +270,7 @@ export default function OurImpact() {
 
                   <div className="p-6">
                     <span className="text-sm text-slate-500">{item.date}</span>
-                    <h3 className="text-2xl font-display font-bold text-[#111827] mt-2">
+                    <h3 className="text-xl md:text-2xl font-display font-bold text-[#111827] mt-2">
                       {item.title}
                     </h3>
                     <p className="mt-3 text-slate-600 leading-relaxed">
@@ -306,7 +306,7 @@ export default function OurImpact() {
             <div className="flex flex-col md:grid md:grid-cols-[1.25fr_1fr] h-full min-h-0">
               {/* left media */}
               {/* left media */}
-              <div className="relative bg-black overflow-hidden h-[170px] sm:h-[300px] md:h-full min-h-0">
+              <div className="relative bg-black overflow-hidden h-52 sm:h-72 md:h-full min-h-0">
                 <Image
                   src={activeSrc || selected.image}
                   alt={selected.title}
@@ -332,7 +332,7 @@ export default function OurImpact() {
                     </span>
                   </div>
 
-                  <h3 className="mt-2 text-xl sm:text-2xl md:text-3xl font-display font-bold text-white">
+                  <h3 className="mt-2 text-lg sm:text-2xl md:text-3xl font-display font-bold text-white">
                     {selected.title}
                   </h3>
                 </div>
@@ -471,7 +471,7 @@ export default function OurImpact() {
               >
                 {/* Top — text block */}
                 <div className="bg-white px-7 py-6 flex flex-col" style={{ height: "38%" }}>
-                  <h3 className="text-[#111111] font-display font-black text-2xl leading-tight tracking-tight">
+                  <h3 className="text-[#111111] font-display font-black text-lg sm:text-xl md:text-2xl leading-tight tracking-tight">
                     {item.title}
                   </h3>
                   <p className="text-slate-700 text-sm leading-relaxed mt-2 border-t border-slate-100 pt-2">

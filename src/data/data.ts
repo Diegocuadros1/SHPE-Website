@@ -515,7 +515,7 @@ export const featuredUpdates: FeaturedUpdate[] = [
     title: "LMU President Visits SHPE",
     excerpt:
       "LMU's university president stopped by our  meeting to connect with members, hear about our chapter's work, and show support for SHPE at LMU.",
-    image: "/Tpoon5.jpg",
+    image: "/tpoon5.jpg",
     instagramUrl: "https://www.instagram.com/p/DWcQi4EEnql/?hl=en&img_index=1",
     details: [
       "LMU's university president attended our  meeting and engaged directly with SHPE members",
