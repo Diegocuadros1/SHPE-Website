@@ -504,6 +504,15 @@ export const initiatives: Initiative[] = [
     highlight: "Engineering community • Bonfire • Connection",
     image: "/lmubonfire.jpg",
   },
+  {
+    id: "ucla-lmu-usc-pool-party",
+    category: "Social",
+    title: "UCLA x LMU x USC Pool Party",
+    excerpt:
+      "Three campuses, one pool party. SHPE members from UCLA, LMU, and USC came together for a cross-campus social full of good vibes, new connections, and familia.",
+    highlight: "Three campuses • Pool party • Familia",
+    image: "/USCxLMU2.png",
+  },
 ];
 
 export const featuredUpdates: FeaturedUpdate[] = [
