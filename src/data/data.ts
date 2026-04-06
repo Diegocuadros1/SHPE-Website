@@ -524,9 +524,9 @@ export const featuredUpdates: FeaturedUpdate[] = [
     ],
     gallery: [
       "/tpoon0.jpg",
-      "/tPoon2.jpg",
-      "/tPoon6.jpg",
-      "/tPoon7.jpg",
+      "/tpoon2.jpg",
+      "/tpoon6.jpg",
+      "/tpoon7.jpg",
     ],
     pill: "bg-amber-500/10 text-amber-800 border-amber-500/20",
   },
