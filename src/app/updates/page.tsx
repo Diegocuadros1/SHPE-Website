@@ -466,11 +466,10 @@ export default function OurImpact() {
             {achievements.map((item) => (
               <article
                 key={item.id}
-                className="snap-start shrink-0 w-[92vw] sm:w-170 overflow-hidden flex flex-col border border-slate-200"
-                style={{ height: "500px" }}
+                className="snap-start shrink-0 w-[92vw] sm:w-170 overflow-hidden flex flex-col border border-slate-200 sm:h-[500px]"
               >
                 {/* Top — text block */}
-                <div className="bg-white px-7 py-6 flex flex-col" style={{ height: "38%" }}>
+                <div className="bg-white px-6 py-5 flex flex-col sm:h-[190px] sm:overflow-hidden">
                   <h3 className="text-[#111111] font-display font-black text-lg sm:text-xl md:text-2xl leading-tight tracking-tight">
                     {item.title}
                   </h3>
@@ -480,7 +479,7 @@ export default function OurImpact() {
                 </div>
 
                 {/* Bottom — photo */}
-                <div className="relative flex-1 overflow-hidden">
+                <div className="relative h-56 sm:flex-1 overflow-hidden">
                   <Image
                     src={item.image}
                     alt={item.title}
