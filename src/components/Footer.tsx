@@ -13,7 +13,7 @@ export function Footer() {
           {/* Top area */}
           <div className="grid grid-cols-1 lg:grid-cols-12">
             {/* LEFT */}
-            <div className="lg:col-span-5 p-8 md:p-10 border-b lg:border-b-0 lg:border-r border-slate-200">
+            <div className="lg:col-span-5 p-5 sm:p-8 md:p-10 border-b lg:border-b-0 lg:border-r border-slate-200">
               <div className="flex items-center gap-3">
                 <img
                   src="/lmulion.png"
@@ -41,7 +41,7 @@ export function Footer() {
             </div>
 
             {/* RIGHT */}
-            <div className="lg:col-span-7 p-8 md:p-10">
+            <div className="lg:col-span-7 p-5 sm:p-8 md:p-10">
               <div className="flex items-center justify-between gap-4">
                 <div className="text-sm font-semibold text-slate-700">
                   Explore
@@ -133,14 +133,14 @@ export function Footer() {
           {/* Bottom strip */}
           <div className="relative border-t border-slate-200 bg-white">
             <div className="grid grid-cols-1 lg:grid-cols-12 items-end">
-              <div className="lg:col-span-9 px-8 py-10 md:px-10 md:py-12">
+              <div className="lg:col-span-9 px-4 py-8 sm:px-8 sm:py-10 md:px-10 md:py-12">
                 <div className="select-none font-display font-extrabold tracking-tight leading-none text-[64px] sm:text-[92px] md:text-[120px] lg:text-[140px] text-slate-900">
                   <span className="text-[#0076A5]">SHPE</span>{" "}
                   <span className="text-[#AB0C2F]">LMU</span>
                 </div>
               </div>
 
-              <div className="lg:col-span-3 px-8 pb-8 md:px-10 md:pb-10 lg:pb-12 text-left lg:text-right">
+              <div className="lg:col-span-3 px-4 pb-6 sm:px-8 sm:pb-8 md:px-10 md:pb-10 lg:pb-12 text-left lg:text-right">
                 <p className="text-xs text-slate-500">
                   © {year} SHPE at Loyola Marymount University. All rights
                   reserved.

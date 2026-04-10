@@ -94,7 +94,7 @@ const EBoardPage = () => {
         </div>
 
         <div className="container relative z-10 mx-auto px-4 text-center py-20">
-          <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white mb-6">
             Executive Board
           </h1>
           <p className="text-lg text-white/85 max-w-2xl mx-auto">

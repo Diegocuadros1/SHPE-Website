@@ -39,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${publicSans.variable} antialiased`}>
+      <body className={`${publicSans.variable} antialiased`} suppressHydrationWarning>
         <div className="min-h-screen flex flex-col">
           <Navbar />
           {/* IMPORTANT: no top padding here so navbar sits on video */}
