@@ -511,7 +511,7 @@ export const initiatives: Initiative[] = [
     excerpt:
       "Three campuses, one pool party. SHPE members from UCLA, LMU, and USC came together for a cross-campus social full of good vibes, new connections, and familia.",
     highlight: "Three campuses • Pool party • Familia",
-    image: "/USCxLMU0.png",
+    image: "/USCxLMU1.png",
   },
 ];
 
