@@ -42,18 +42,33 @@ const H_SCROLL =
 const H_ITEM =
   "shrink-0 md:shrink-100 w-[85%] max-w-[320px] md:w-auto md:max-w-none snap-start";
 
+const yearKeys = Object.keys(leadership).sort().reverse();
+
 const EBoardPage = () => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selectedYear, setSelectedYear] = useState<string>(yearKeys[0]);
+
+  const yearSuffix = selectedYear.replace("eboard", "");
+
+  const currentBoard = useMemo(
+    () => leadership[selectedYear] ?? [],
+    [selectedYear]
+  );
+
+  const currentInterns = useMemo(
+    () => interns[`interns${yearSuffix}`] ?? [],
+    [yearSuffix]
+  );
 
   const selectedMember = useMemo(
-    () => leadership.find((m) => m.id === selectedId) || null,
-    [selectedId]
+    () => currentBoard.find((m) => m.id === selectedId) || null,
+    [selectedId, currentBoard]
   );
 
   const selectedMemberIntern = useMemo(
-    () => interns.find((m) => m.id === selectedId) || null,
-    [selectedId]
-  )
+    () => currentInterns.find((m) => m.id === selectedId) || null,
+    [selectedId, currentInterns]
+  );
 
   const openMember = (member: any) => {
     if (member?.isPlaceholder) return;
@@ -91,8 +106,8 @@ const EBoardPage = () => {
       {/* E-BOARD SECTION */}
       <section className="py-20 md:py-28 bg-[#F5F5F5] overflow-x-hidden">
         <div className="container mx-auto px-4 flex flex-col items-center">
-          <div className="w-full flex items-baseline">
-            <div className="max-w-3xl mb-14 text-left">
+          <div className="w-full flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
+            <div className="max-w-3xl text-left">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-2xl bg-[#0076A5] flex items-center justify-center shadow-sm">
                   <Users className="w-6 h-6 text-white" />
@@ -107,13 +122,41 @@ const EBoardPage = () => {
                 Click any member to learn more and connect!
               </p>
             </div>
+
+            {yearKeys.length > 0 && (
+              <div className="flex flex-col gap-2 sm:items-end shrink-0">
+                <span className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
+                  E-Board Year
+                </span>
+                <div className="flex gap-2 flex-wrap sm:justify-end">
+                  {yearKeys.map((key) => {
+                    const isActive = selectedYear === key;
+                    return (
+                      <button
+                        key={key}
+                        type="button"
+                        onClick={() => { setSelectedYear(key); setSelectedId(null); }}
+                        className={[
+                          "px-5 py-2 rounded-full text-sm font-semibold border transition-all duration-200",
+                          isActive
+                            ? "bg-[#AB0C2F] text-white border-[#AB0C2F] shadow-sm"
+                            : "bg-white text-slate-600 border-slate-200 hover:border-[#AB0C2F]/40 hover:text-[#AB0C2F]",
+                        ].join(" ")}
+                      >
+                        {key.replace("eboard", "")}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* ✅ Mobile swipe row, md+ grid */}
           <div
             className={`${H_SCROLL} md:grid-cols-2 lg:grid-cols-4 max-w-xl md:max-w-6xl mx-auto`}
           >
-            {leadership.map((member) => {
+            {currentBoard.map((member) => {
               const disabled = !!member.isPlaceholder;
 
               return (
@@ -324,7 +367,7 @@ const EBoardPage = () => {
           <div
             className={`${H_SCROLL} md:grid-cols-2 lg:grid-cols-4 max-w-xl md:max-w-6xl mx-auto`}
           >
-            {interns.map((member) => {
+            {currentInterns.map((member) => {
               const disabled = !!member.isPlaceholder;
 
               return (
@@ -400,7 +443,7 @@ const EBoardPage = () => {
             open={!!selectedMemberIntern}
             onOpenChange={(o) => !o && closeMember()}
           >
-            <DialogContent className="w-[calc(100vw-1.5rem)] sm:w-full sm:max-w-[980px] max-h-[85vh] overflow-y-auto p-4 sm:p-6">
+            <DialogContent className=" w-[calc(100vw-1.5rem)] sm:w-full sm:max-w-[980px] max-h-[85vh] overflow-y-auto p-4 sm:p-6">
               {selectedMemberIntern && (
                 <>
                   <DialogHeader>
