@@ -27,7 +27,7 @@ const About = () => {
           <span className="inline-flex px-4 py-2 rounded-full bg-white/10 text-white text-sm mb-6 border border-white/15 backdrop-blur">
             Our Story
           </span>
-          <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white mb-6">
             About SHPE LMU
           </h1>
           <p className="text-lg text-white/85 max-w-2xl mx-auto">

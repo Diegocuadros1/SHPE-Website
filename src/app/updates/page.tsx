@@ -73,7 +73,7 @@ export default function OurImpact() {
         </div>
 
         <div className="container relative z-10 mx-auto px-4 text-center py-20">
-          <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white mb-6">
             Our Impact<span className="text-[#F4B400]">.</span>
           </h1>
 
@@ -164,7 +164,7 @@ export default function OurImpact() {
                 <div className="p-6">
                   <div className="flex items-center justify-between gap-3 mb-3">
                     <span
-                      className={`inline-flex items-center px-2 sm:px-3 py-1 rounded-full border text-[10px] sm::text-xs font-semibold ${getPillClass(
+                      className={`inline-flex items-center px-2 sm:px-3 py-1 rounded-full border text-[10px] sm:text-xs font-semibold ${getPillClass(
                         item.category
                       )}`}
                     >

@@ -78,7 +78,7 @@ const Contact = () => {
         <div className="container relative z-10 mx-auto px-4 text-center py-20">
 
 
-          <h1 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-white mb-6">
             Contact Us
           </h1>
 
@@ -94,7 +94,7 @@ const Contact = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Contact Form */}
             <div className="order-2 lg:order-1">
-              <div className="bg-white rounded-2xl p-8 border border-[#DDDDDD] shadow-lg">
+              <div className="bg-white rounded-2xl p-5 sm:p-8 border border-[#DDDDDD] shadow-lg">
                 <h2 className="text-2xl font-display font-bold text-[#0076A5] mb-6">
                   Send Us a Message
                 </h2>
