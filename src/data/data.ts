@@ -310,7 +310,7 @@ export const leadership: Record<string, {
   },
   {
       id: "amanda",
-      role: "Intern Vice President",
+      role: "Treasurer",
       name: "Amanda Avalos",
       major: "Computer Engineering",
       year: "Junior",
